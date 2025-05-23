@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skinography - Best Treatment | Салон красоты в Белграде</title>
+    <meta name="description" content="Skinography - премиальный салон красоты в Белграде. Лазерная эпиляция, маникюр, педикюр, косметология, брови и ресницы. Записывайтесь онлайн!">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Progress bar -->
+    <div class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">SKINOGRAPHY</a>
+            <ul class="nav-links">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#portfolio">Портфолио</a></li>
+                <li><a href="#booking">Запись</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="sr">SR</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>SKINOGRAPHY</h1>
+            <p class="tagline">BEST TREATMENT</p>
+            <div class="cta-buttons">
+                <a href="#booking" class="btn btn-primary">Записаться онлайн</a>
+                <a href="#services" class="btn btn-secondary">Наши услуги</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">О НАС</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Добро пожаловать в Skinography - ваш премиальный салон красоты в самом сердце Белграда. Мы специализируемся на инновационных процедурах для кожи, используя только самые современные технологии и продукты высочайшего качества.</p>
+                    <br>
+                    <p>Наша миссия - помочь каждому клиенту раскрыть естественную красоту и достичь идеального состояния кожи. Мы верим, что красота начинается с здоровой кожи, и именно поэтому мы подходим к каждому клиенту индивидуально, создавая персонализированные программы ухода.</p>
+                </div>
+                <div class="about-image floating">
+                    <img src="salon.jpeg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">НАШИ УСЛУГИ</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="laser-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF3D3D;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="laser-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <rect x="35" y="10" width="10" height="25" rx="5" fill="url(#laser-grad)" filter="url(#laser-shadow)"/>
+                            <circle cx="40" cy="40" r="5" fill="#FFE0E0"/>
+                            <path d="M40 45 L40 65" stroke="url(#laser-grad)" stroke-width="2" stroke-dasharray="3,2" opacity="0.8"/>
+                            <path d="M35 65 L45 65" stroke="url(#laser-grad)" stroke-width="2"/>
+                            <circle cx="25" cy="20" r="2" fill="#FF6B6B" opacity="0.6"/>
+                            <circle cx="55" cy="20" r="2" fill="#FF6B6B" opacity="0.6"/>
+                            <path d="M35 50 L30 55 M45 50 L50 55" stroke="#FF6B6B" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Лазерная эпиляция</h3>
+                    <p>Современная технология удаления волос с долговременным эффектом. Безопасно, безболезненно и эффективно</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="nail-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFC0CB;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFB6C1;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="nail-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <ellipse cx="25" cy="35" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
+                            <ellipse cx="35" cy="30" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
+                            <ellipse cx="45" cy="30" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
+                            <ellipse cx="55" cy="35" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
+                            <rect x="20" y="45" width="40" height="15" rx="10" fill="#FFF0F5"/>
+                            <circle cx="20" cy="20" r="2" fill="#FFC0CB" opacity="0.6"/>
+                            <circle cx="60" cy="20" r="2" fill="#FFC0CB" opacity="0.6"/>
+                            <path d="M30 10 L35 15 M45 15 L50 10" stroke="#FFB6C1" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Маникюр</h3>
+                    <p>Классический, аппаратный, европейский маникюр. Долговременные покрытия и дизайн любой сложности</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="pedi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#B19CD9;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#8A7FBA;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="pedi-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <ellipse cx="40" cy="45" rx="20" ry="15" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
+                            <ellipse cx="30" cy="30" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
+                            <ellipse cx="40" cy="25" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
+                            <ellipse cx="50" cy="30" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
+                            <path d="M25 55 Q40 60 55 55" fill="#F0EBFF" stroke="url(#pedi-grad)" stroke-width="2"/>
+                            <circle cx="20" cy="15" r="2" fill="#B19CD9" opacity="0.6"/>
+                            <circle cx="60" cy="15" r="2" fill="#B19CD9" opacity="0.6"/>
+                            <circle cx="40" cy="65" r="2" fill="#B19CD9" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Педикюр</h3>
+                    <p>Классический, аппаратный, медицинский педикюр. Уход за стопами и решение проблем с вросшими ногтями</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="cosm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#5B9FCC;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="cosm-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <circle cx="40" cy="35" r="20" fill="url(#cosm-grad)" filter="url(#cosm-shadow)"/>
+                            <circle cx="40" cy="35" r="15" fill="#E8F4F8"/>
+                            <circle cx="35" cy="30" r="2" fill="#5B9FCC"/>
+                            <circle cx="45" cy="30" r="2" fill="#5B9FCC"/>
+                            <path d="M35 40 Q40 43 45 40" fill="none" stroke="#5B9FCC" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="20" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
+                            <circle cx="60" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
+                            <path d="M30 15 L35 10 L40 15 L45 10 L50 15" stroke="#87CEEB" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Косметология</h3>
+                    <p>Профессиональный уход за кожей лица: чистки, пилинги, массажи, маски и аппаратные процедуры</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="brow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#6B5B45;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="brow-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <path d="M20 30 Q30 25 40 30" fill="none" stroke="url(#brow-grad)" stroke-width="4" stroke-linecap="round" filter="url(#brow-shadow)"/>
+                            <path d="M40 30 Q50 25 60 30" fill="none" stroke="url(#brow-grad)" stroke-width="4" stroke-linecap="round" filter="url(#brow-shadow)"/>
+                            <circle cx="30" cy="40" r="3" fill="#87CEEB"/>
+                            <circle cx="50" cy="40" r="3" fill="#87CEEB"/>
+                            <path d="M25 50 Q30 48 35 50" fill="none" stroke="url(#brow-grad)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M45 50 Q50 48 55 50" fill="none" stroke="url(#brow-grad)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="15" cy="20" r="2" fill="#8B7355" opacity="0.6"/>
+                            <circle cx="65" cy="20" r="2" fill="#8B7355" opacity="0.6"/>
+                            <circle cx="40" cy="60" r="2" fill="#8B7355" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Брови и ресницы</h3>
+                    <p>Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <h2 class="section-title">НАШИ ПРЕИМУЩЕСТВА</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFB6C1;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="shadow1">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <circle cx="40" cy="25" r="12" fill="url(#grad1)" filter="url(#shadow1)"/>
+                            <path d="M40 40 C30 40 25 45 25 55 L55 55 C55 45 50 40 40 40 Z" fill="url(#grad1)" filter="url(#shadow1)"/>
+                            <rect x="37" y="35" width="6" height="8" rx="3" fill="#FFEBEF"/>
+                            <circle cx="30" cy="15" r="2" fill="#FFB6C1" opacity="0.6"/>
+                            <circle cx="50" cy="15" r="2" fill="#FFB6C1" opacity="0.6"/>
+                            <circle cx="40" cy="10" r="2" fill="#FFB6C1" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Опытные специалисты</h3>
+                    <p>Команда сертифицированных профессионалов с многолетним опытом</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#4682B4;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="shadow2">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <rect x="35" y="20" width="10" height="35" rx="2" fill="url(#grad2)" filter="url(#shadow2)"/>
+                            <rect x="30" y="15" width="20" height="8" rx="4" fill="url(#grad2)" filter="url(#shadow2)"/>
+                            <circle cx="40" cy="35" r="8" fill="#E0F4FF" stroke="url(#grad2)" stroke-width="2"/>
+                            <rect x="25" y="50" width="30" height="10" rx="2" fill="url(#grad2)" filter="url(#shadow2)"/>
+                            <circle cx="20" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
+                            <circle cx="60" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Современное оборудование</h3>
+                    <p>Используем только новейшие технологии и аппараты последнего поколения</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="shadow3">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <path d="M40 15 Q30 25 30 35 Q30 45 40 55 Q50 45 50 35 Q50 25 40 15 Z" fill="url(#grad3)" filter="url(#shadow3)"/>
+                            <path d="M40 25 L40 45" stroke="#E8F8E8" stroke-width="2"/>
+                            <path d="M35 35 Q40 30 45 35" fill="none" stroke="#E8F8E8" stroke-width="2"/>
+                            <circle cx="25" cy="20" r="3" fill="#90EE90" opacity="0.6"/>
+                            <circle cx="55" cy="20" r="3" fill="#90EE90" opacity="0.6"/>
+                            <circle cx="40" cy="60" r="3" fill="#90EE90" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Премиум косметика</h3>
+                    <p>Работаем с лучшими мировыми брендами профессиональной косметики</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="shadow4">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <path d="M40 15 L46 28 L60 30 L50 40 L52 54 L40 47 L28 54 L30 40 L20 30 L34 28 Z" fill="url(#grad4)" filter="url(#shadow4)"/>
+                            <circle cx="40" cy="35" r="8" fill="#FFF9E6"/>
+                            <circle cx="20" cy="20" r="2" fill="#FFD700" opacity="0.6"/>
+                            <circle cx="60" cy="20" r="2" fill="#FFD700" opacity="0.6"/>
+                            <circle cx="25" cy="55" r="2" fill="#FFD700" opacity="0.6"/>
+                            <circle cx="55" cy="55" r="2" fill="#FFD700" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Персонализированные программы ухода для каждого клиента</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">ПОРТФОЛИО</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: #666;">Результаты нашей работы говорят сами за себя</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="manikir.jpeg" alt="Маникюр работа 1">
+                    <div class="portfolio-overlay">
+                        <h4>Маникюр</h4>
+                        <p>Французский маникюр</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="pedikir.jpeg" alt="Педикюр работа 1">
+                    <div class="portfolio-overlay">
+                        <h4>Педикюр</h4>
+                        <p>Классический педикюр</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="obrve.jpeg" alt="Брови работа 1">
+                    <div class="portfolio-overlay">
+                        <h4>Брови</h4>
+                        <p>Ламинирование бровей</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="trepavice.jpeg" alt="Ресницы работа 1">
+                    <div class="portfolio-overlay">
+                        <h4>Ресницы</h4>
+                        <p>Наращивание ресниц</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="kozmetologija.jpeg" alt="Косметология работа 1">
+                    <div class="portfolio-overlay">
+                        <h4>Косметология</h4>
+                        <p>Чистка лица</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="laser.jpeg" alt="Лазерная эпиляция результат">
+                    <div class="portfolio-overlay">
+                        <h4>Эпиляция</h4>
+                        <p>Лазерная эпиляция</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <h2 class="section-title" id="online">ЗАПИШИТЕСЬ ОНЛАЙН</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Выберите удобную для вас платформу для записи</p>
+            <div class="booking-widgets">
+                <div class="widget-card" id="altegio">
+                    <h3>Altegio</h3>
+                    <p>Международная система онлайн-записи с удобным интерфейсом</p>
+                    <a href="#" class="btn btn-primary" style="background: #d4af37; border-color: #d4af37;">Записаться через Altegio</a>
+                </div>
+                <div class="widget-card" id="sredi-me">
+                    <h3>Sredi Me</h3>
+                    <p>Популярная сербская платформа для записи в салоны красоты</p>
+                    <a href="#" class="btn btn-primary" style="background: #d4af37; border-color: #d4af37;">Записаться через Sredi Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">КОНТАКТЫ</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Свяжитесь с нами</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="address-info">
+                            <p>Белград, Сербия</p>
+                            <p>Dunavka 2j</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="phone-info">
+                            <p><a href="tel:+381112345678">+381 11 234 5678</a></p>
+                            <p><a href="tel:+381601234567">+381 60 123 4567</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <p class="email-info"><a href="mailto:info@skinography.rs">info@skinography.rs</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <div class="hours-info">
+                            <p>Пн-Вс: 11:00 - 19:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+    <h3>Как нас найти</h3>
+    <div class="map-image-wrapper">
+        <img src="header-image.png" alt="Skinography салон" class="map-image">
+        <div class="navigation-sticker">
+            <div class="sticker-content">
+                <div class="sticker-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#4b9b1e"/>
+                    </svg>
+                </div>
+                <div class="sticker-text">
+                    <h4>Skinography</h4>
+                    <p>Dunavska 2J, Beograd</p>
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Dunavska+2J,+Beograd,+Serbia"
+                   target="_blank"
+                   class="navigate-btn">
+                    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
+                    </svg>
+                    <span>Проложить маршрут</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to top button -->
+<div class="back-to-top" id="backToTop">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 4L5 11H9V20H15V11H19L12 4Z"/>
+    </svg>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skinography. Все права защищены.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">Best Treatment in Belgrade</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="languages.js"></script>
+    <script>
+        // Back to top button
+const backToTopButton = document.getElementById('backToTop');
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+});
+    </script>
+</body>
+</html>
