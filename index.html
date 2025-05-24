@@ -15,8 +15,8 @@
     <style>
     @font-face {
         font-family: 'Stylish Mother';
-        src: url('Stylish-Mother.otf') format('otf'),
-        url('Stylish-Mother.ttf') format('truetype');
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -52,18 +52,34 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#portfolio">Портфолио</a></li>
+            <li><a href="#booking">Запись</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+        <div class="mobile-language-selector">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="sr">SR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
     <!-- Hero Section -->
-    <section class="hero" id="home">
+<section class="hero" id="home">
     <!-- Слайдер фоновых изображений -->
     <div class="hero-slider">
-        <div class="slide active" style="background-image: url('../hero/1.jpg')">
-            <img src="../hero/1.jpg">
-        </div>
-        <div class="slide" style="background-image: url('../hero/2.jpg')"></div>
-        <div class="slide" style="background-image: url('../hero/3.jpg')"></div>
-        <div class="slide" style="background-image: url('../hero/4.jpg')"></div>
-        <div class="slide" style="background-image: url('../hero/5.jpg')"></div>
-        <div class="slide" style="background-image: url('../hero/6.jpg')"></div>
+        <div class="slide active" style="background-image: url('../hero/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpeg')"></div>
     </div>
 
     <!-- Оверлей для читабельности текста -->
@@ -510,6 +526,125 @@ window.addEventListener('scroll', () => {
         backToTopButton.classList.add('show');
     } else {
         backToTopButton.classList.remove('show');
+    }
+});
+    </script>
+<script>
+        // Mobile menu functionality
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+const body = document.body;
+
+// Создаем overlay элемент
+const overlay = document.createElement('div');
+overlay.classList.add('mobile-menu-overlay');
+document.body.appendChild(overlay);
+
+// Функция открытия/закрытия меню
+function toggleMobileMenu() {
+    mobileMenuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
+}
+
+// Клик по бургеру
+mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+// Клик по overlay для закрытия меню
+overlay.addEventListener('click', toggleMobileMenu);
+
+// Закрытие меню при клике на пункт меню
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        toggleMobileMenu();
+    });
+});
+
+// Обновление активного пункта в мобильном меню
+function updateActiveMobileNav() {
+    const scrollPosition = window.pageYOffset + 100;
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            mobileNavLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveMobileNav);
+
+// Синхронизация языковых кнопок между десктоп и мобильной версией
+const allLangBtns = document.querySelectorAll('.lang-btn');
+allLangBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+
+        // Обновляем все кнопки языка
+        allLangBtns.forEach(b => {
+            b.classList.remove('active');
+            if (b.dataset.lang === lang) {
+                b.classList.add('active');
+            }
+        });
+
+        // Вызываем функцию смены языка
+        updateLanguage(lang);
+    });
+});
+
+// Предотвращение прокрутки страницы при открытом меню
+let scrollPosition = 0;
+
+function disableScroll() {
+    scrollPosition = window.pageYOffset;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+}
+
+function enableScroll() {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+}
+
+// Обновленная функция toggleMobileMenu
+function toggleMobileMenu() {
+    const isActive = mobileMenu.classList.contains('active');
+
+    if (!isActive) {
+        disableScroll();
+    } else {
+        enableScroll();
+    }
+
+    mobileMenuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+// Закрытие меню при изменении размера окна
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+        mobileMenuToggle.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        enableScroll();
     }
 });
     </script>

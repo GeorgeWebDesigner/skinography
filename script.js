@@ -43,15 +43,6 @@
             observer.observe(el);
         });
 
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-        });
-
         // Progress bar
         const progressBar = document.querySelector('.progress-bar');
 
@@ -243,46 +234,56 @@ const indicators = document.querySelectorAll('.indicator');
 let currentSlide = 0;
 const slideInterval = 5000; // 5 секунд
 
+// Создаем индикаторы для всех 6 слайдов
+function initializeIndicators() {
+    const indicatorsContainer = document.querySelector('.slide-indicators');
+    indicatorsContainer.innerHTML = '';
+
+    slides.forEach((_, index) => {
+        const indicator = document.createElement('span');
+        indicator.classList.add('indicator');
+        indicator.setAttribute('data-slide', index);
+        if (index === 0) indicator.classList.add('active');
+        indicatorsContainer.appendChild(indicator);
+    });
+}
+
 function nextSlide() {
     // Убираем активный класс с текущего слайда
     slides[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.remove('active');
 
     // Переходим к следующему слайду
     currentSlide = (currentSlide + 1) % slides.length;
 
     // Добавляем активный класс новому слайду
     slides[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    document.querySelectorAll('.indicator')[currentSlide].classList.add('active');
 }
+
+// Инициализация
+initializeIndicators();
 
 // Автоматическая смена слайдов
 let slideTimer = setInterval(nextSlide, slideInterval);
 
 // Клик по индикаторам
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('indicator')) {
         clearInterval(slideTimer);
 
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
+        const newIndex = parseInt(e.target.getAttribute('data-slide'));
 
-        currentSlide = index;
+        slides[currentSlide].classList.remove('active');
+        document.querySelectorAll('.indicator')[currentSlide].classList.remove('active');
+
+        currentSlide = newIndex;
 
         slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
+        document.querySelectorAll('.indicator')[currentSlide].classList.add('active');
 
         // Перезапускаем автоматическую смену
         slideTimer = setInterval(nextSlide, slideInterval);
-    });
+    }
 });
 
-// Пауза при наведении на hero секцию (опционально)
-const heroSection = document.querySelector('.hero');
-heroSection.addEventListener('mouseenter', () => {
-    clearInterval(slideTimer);
-});
-
-heroSection.addEventListener('mouseleave', () => {
-    slideTimer = setInterval(nextSlide, slideInterval);
-});
