@@ -2,6 +2,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            }
+
         .scroll-indicator:hover {
             transform: translateX(-50%) scale(1.1);
         }
@@ -164,6 +166,12 @@
             gap: 2rem;
         }
 
+        .nav-container img{
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+        }
+
         .language-selector {
             display: flex;
             gap: 0.5rem;
@@ -203,6 +211,7 @@
             color: #1a1a1a;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-family: 'Stylish Mother';
         }
 
         .logo:hover {
@@ -211,8 +220,9 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.1rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -249,126 +259,205 @@
             color: #4b9b1e;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* Hero Section с слайдером */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-            z-index: 1;
-        }
+/* Слайдер */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 250px;
-            background: linear-gradient(to bottom,
-                transparent 0%,
-                rgba(248, 248, 248, 0.4) 40%,
-                rgba(248, 248, 248, 0.8) 70%,
-                #f8f8f8 100%);
-            z-index: 2;
-            pointer-events: none;
-        }
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    animation: zoomEffect 20s ease-in-out infinite;
+}
 
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            position: relative;
-        }
+.slide.active {
+    opacity: 1;
+}
 
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 100;
-            letter-spacing: 0.3em;
-            margin-bottom: 1rem;
-            opacity: 1;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
+@keyframes zoomEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
-        .hero .tagline {
-            font-size: 1.5rem;
-            color: #4b9b1e;
-            letter-spacing: 0.2em;
-            margin-bottom: 3rem;
-            opacity: 1;
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
+/* Оверлей для засвеченности */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(248, 248, 248, 0.7) 0%,
+        rgba(232, 232, 232, 0.6) 50%,
+        rgba(248, 248, 248, 0.7) 100%
+    );
+    z-index: 2;
+}
 
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            opacity: 1;
-            animation: fadeInUp 1s ease 0.7s forwards;
-        }
+/* Дополнительный эффект засвеченности */
+.hero-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.2) 40%,
+        transparent 70%
+    );
+}
 
-        .btn {
-            padding: 1rem 3rem;
-            text-decoration: none;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-        }
+/* Контент поверх слайдера */
+.hero-content {
+    text-align: center;
+    z-index: 3;
+    position: relative;
+}
 
-        .btn-primary {
-            background: #1a1a1a;
-            color: #fff;
-            border: 1px solid #1a1a1a;
-        }
+/* Индикаторы слайдов */
+.slide-indicators {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 3;
+}
 
-        .btn-secondary {
-            background: transparent;
-            color: #1a1a1a;
-            border: 1px solid #1a1a1a;
-        }
+.indicator {
+    width: 40px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #4b9b1e;
+    transition: width 5s linear;
+}
 
-        .btn-primary:hover {
-            background: #4b9b1e;
-            border-color: #4b9b1e;
-        }
+.indicator.active {
+    background: rgba(255, 255, 255, 0.5);
+}
 
-        .btn-secondary:hover {
-            background: #1a1a1a;
-            color: #fff;
-        }
+.indicator.active::before {
+    width: 100%;
+}
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 1;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Обновленные стили для элементов Hero */
+.hero h1 {
+    font-family: 'Stylish Mother', cursive;
+    font-size: 5rem;
+    font-weight: normal;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+.hero .tagline {
+    font-size: 1.5rem;
+    color: #4b9b1e;
+    letter-spacing: 0.2em;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    animation: fadeInUp 1s ease 0.5s forwards;
+}
+
+/* Кнопки с улучшенной видимостью */
+.btn {
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+}
+
+.btn-primary {
+    background: rgba(26, 26, 26, 0.9);
+    color: #fff;
+    border: 1px solid #1a1a1a;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.8);
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .slide-indicators {
+        bottom: 120px;
+        gap: 0.5rem;
+    }
+
+    .indicator {
+        width: 30px;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(248, 248, 248, 0.8) 0%,
+            rgba(232, 232, 232, 0.7) 50%,
+            rgba(248, 248, 248, 0.8) 100%
+        );
+    }
+}
 
         /* Sections */
         section {
@@ -387,6 +476,7 @@
         .section-title {
             text-align: center;
             font-size: 3rem;
+            font-family: 'Stylish Mother';
             font-weight: 100;
             letter-spacing: 0.2em;
             margin-bottom: 3rem;
@@ -754,6 +844,7 @@
 
 .portfolio-overlay h4 {
     font-size: 1.3rem;
+    font-family: 'Stylish Mother';
     font-weight: 500;
     margin-bottom: 0.5rem;
 }

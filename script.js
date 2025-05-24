@@ -236,3 +236,53 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Автоматический слайдер
+const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.indicator');
+let currentSlide = 0;
+const slideInterval = 5000; // 5 секунд
+
+function nextSlide() {
+    // Убираем активный класс с текущего слайда
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+
+    // Переходим к следующему слайду
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    // Добавляем активный класс новому слайду
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+}
+
+// Автоматическая смена слайдов
+let slideTimer = setInterval(nextSlide, slideInterval);
+
+// Клик по индикаторам
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        clearInterval(slideTimer);
+
+        slides[currentSlide].classList.remove('active');
+        indicators[currentSlide].classList.remove('active');
+
+        currentSlide = index;
+
+        slides[currentSlide].classList.add('active');
+        indicators[currentSlide].classList.add('active');
+
+        // Перезапускаем автоматическую смену
+        slideTimer = setInterval(nextSlide, slideInterval);
+    });
+});
+
+// Пауза при наведении на hero секцию (опционально)
+const heroSection = document.querySelector('.hero');
+heroSection.addEventListener('mouseenter', () => {
+    clearInterval(slideTimer);
+});
+
+heroSection.addEventListener('mouseleave', () => {
+    slideTimer = setInterval(nextSlide, slideInterval);
+});

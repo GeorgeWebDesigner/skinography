@@ -8,8 +8,19 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet" href="styles.css">
+    <style>
+    @font-face {
+        font-family: 'Stylish Mother';
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
 </head>
 <body>
     <!-- Progress bar -->
@@ -18,7 +29,8 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#home" class="logo">SKINOGRAPHY</a>
+            <img src="logo.png">
+            <a href="#home" class="logo">Skinography</a>
             <ul class="nav-links">
                 <li><a href="#about">О нас</a></li>
                 <li><a href="#services">Услуги</a></li>
@@ -42,16 +54,41 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>SKINOGRAPHY</h1>
-            <p class="tagline">BEST TREATMENT</p>
-            <div class="cta-buttons">
-                <a href="#booking" class="btn btn-primary">Записаться онлайн</a>
-                <a href="#services" class="btn btn-secondary">Наши услуги</a>
-            </div>
+    <!-- Слайдер фоновых изображений -->
+    <div class="hero-slider">
+        <div class="slide active" style="background-image: url('../hero/1.jpg')">
+            <img src="../hero/1.jpg">
         </div>
-        <div class="scroll-indicator"></div>
-    </section>
+        <div class="slide" style="background-image: url('../hero/2.jpg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpg')"></div>
+    </div>
+
+    <!-- Оверлей для читабельности текста -->
+    <div class="hero-overlay"></div>
+
+    <!-- Контент -->
+    <div class="hero-content">
+        <h1>Skinography</h1>
+        <p class="tagline">BEST TREATMENT</p>
+        <div class="cta-buttons">
+            <a href="#booking" class="btn btn-primary">Записаться онлайн</a>
+            <a href="#services" class="btn btn-secondary">Наши услуги</a>
+        </div>
+    </div>
+
+    <!-- Индикаторы слайдов -->
+    <div class="slide-indicators">
+        <span class="indicator active" data-slide="0"></span>
+        <span class="indicator" data-slide="1"></span>
+        <span class="indicator" data-slide="2"></span>
+        <span class="indicator" data-slide="3"></span>
+    </div>
+
+    <div class="scroll-indicator"></div>
+</section>
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -400,7 +437,7 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
-                        <p class="email-info"><a href="mailto:info@skinography.rs">info@skinography.rs</a></p>
+                        <p class="email-info"><a href="mailto:info@Skinography.rs">info@Skinography.rs</a></p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>
