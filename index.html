@@ -15,8 +15,8 @@
     <style>
     @font-face {
         font-family: 'Stylish Mother';
-        src: url('Stylish-Mother.otf') format('otf'),
-        url('Stylish-Mother.ttf') format('truetype');
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -30,9 +30,8 @@
     <nav>
         <div class="nav-container">
             <img src="logo.png">
-            <a href="#home" class="logo">Skinography</a>
+            <a href="#about" class="logo">Skinography</a>
             <ul class="nav-links">
-                <li><a href="#about">О нас</a></li>
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#advantages">Преимущества</a></li>
                 <li><a href="#portfolio">Портфолио</a></li>
@@ -56,7 +55,6 @@
     <div class="mobile-menu-overlay"></div>
     <div class="mobile-menu">
         <ul class="mobile-nav-links">
-            <li><a href="#about">О нас</a></li>
             <li><a href="#services">Услуги</a></li>
             <li><a href="#advantages">Преимущества</a></li>
             <li><a href="#portfolio">Портфолио</a></li>
@@ -74,12 +72,12 @@
 <section class="hero" id="home">
     <!-- Слайдер фоновых изображений -->
     <div class="hero-slider">
-        <div class="slide active" style="background-image: url('1.jpeg')"></div>
-        <div class="slide" style="background-image: url('2.jpeg')"></div>
-        <div class="slide" style="background-image: url('3.jpeg')"></div>
-        <div class="slide" style="background-image: url('4.jpeg')"></div>
-        <div class="slide" style="background-image: url('5.jpeg')"></div>
-        <div class="slide" style="background-image: url('6.jpeg')"></div>
+        <div class="slide active" style="background-image: url('../hero/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpeg')"></div>
     </div>
 
     <!-- Оверлей для читабельности текста -->
@@ -107,21 +105,29 @@
 </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">О НАС</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Добро пожаловать в Skinography - ваш премиальный салон красоты в самом сердце Белграда. Мы специализируемся на инновационных процедурах для кожи, используя только самые современные технологии и продукты высочайшего качества.</p>
-                    <br>
-                    <p>Наша миссия - помочь каждому клиенту раскрыть естественную красоту и достичь идеального состояния кожи. Мы верим, что красота начинается с здоровой кожи, и именно поэтому мы подходим к каждому клиенту индивидуально, создавая персонализированные программы ухода.</p>
+<section class="about" id="about">
+    <div class="container">
+        <h2 class="section-title">НАША ФИЛОСОФИЯ</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3 class="about-subtitle">Наш путь к натуральной красоте: почему мы выбрали безинъекционные методы?</h3>
+                <p>Красота — это не про стандарты, а про гармонию с собой. Мы в Skinography верим, что уход за собой должен быть бережным. <span class="highlight">Поэтому в нашей работе мы отказались от инъекций и выбрали методы, которые помогают коже естественно обновляться, без боли и рисков.</span></p>
+                <p>Мы не гонимся за быстрыми результатами, а создаем красоту, которая останется с вами надолго.</p>
+                <div class="philosophy-points">
+                    <p><span class="accent-point">✧</span> Восстанавливаем, а не ломаем.</p>
+                    <p><span class="accent-point">✧</span> Подчеркиваем, а не меняем.</p>
+                    <p><span class="accent-point">✧</span> Активизируем внутренние ресурсы кожи, а не заставляем ее подстраиваться под искусственные вмешательства.</p>
                 </div>
-                <div class="about-image">
-                    <img src="salon.jpeg">
-                </div>
+                <p>Здоровье и естественность - наш приоритет.</p>
+                <p>Мы заботимся не только о вашей внешности, но и о вашем комфорте, помогая сохранить молодость без агрессивных процедур.</p>
+                <p class="about-conclusion">Ждем вас в нашем салоне.<br>Естественная красота - это просто.</p>
+            </div>
+            <div class="about-image">
+                <img src="../hero/2.jpeg" alt="Естественная красота в Skinography">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -131,23 +137,53 @@
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="laser-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#FF3D3D;stop-opacity:1" />
-                                </linearGradient>
-                                <filter id="laser-shadow">
-                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
-                                </filter>
-                            </defs>
-                            <rect x="35" y="10" width="10" height="25" rx="5" fill="url(#laser-grad)" filter="url(#laser-shadow)"/>
-                            <circle cx="40" cy="40" r="5" fill="#FFE0E0"/>
-                            <path d="M40 45 L40 65" stroke="url(#laser-grad)" stroke-width="2" stroke-dasharray="3,2" opacity="0.8"/>
-                            <path d="M35 65 L45 65" stroke="url(#laser-grad)" stroke-width="2"/>
-                            <circle cx="25" cy="20" r="2" fill="#FF6B6B" opacity="0.6"/>
-                            <circle cx="55" cy="20" r="2" fill="#FF6B6B" opacity="0.6"/>
-                            <path d="M35 50 L30 55 M45 50 L50 55" stroke="#FF6B6B" stroke-width="1.5" opacity="0.6"/>
-                        </svg>
+    <defs>
+        <linearGradient id="laser-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FF3D3D;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="laser-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFE0E0;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFBBBB;stop-opacity:1" />
+        </linearGradient>
+        <filter id="laser-shadow-1">
+            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.3" flood-color="#FF3D3D"/>
+        </filter>
+        <filter id="laser-shadow-2">
+            <feDropShadow dx="0" dy="5" stdDeviation="3" flood-opacity="0.2" />
+        </filter>
+        <filter id="laser-glow">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <!-- Устройство лазера - основание -->
+    <rect x="30" y="10" width="20" height="10" rx="3" fill="#666" />
+    <rect x="33" y="20" width="14" height="5" rx="1" fill="#888" />
+
+    <!-- Эмиттер лазера -->
+    <rect x="36" y="25" width="8" height="15" rx="4" fill="url(#laser-grad-1)" filter="url(#laser-shadow-1)" />
+    <circle cx="40" cy="27" r="3" fill="#FF9999" />
+
+    <!-- Лазерный луч -->
+    <path d="M40 40 L40 60" stroke="url(#laser-grad-1)" stroke-width="3" stroke-dasharray="2,1" opacity="0.8" filter="url(#laser-glow)" />
+
+    <!-- Эффект на коже -->
+    <ellipse cx="40" cy="65" rx="15" ry="5" fill="url(#laser-grad-2)" filter="url(#laser-shadow-2)" />
+    <path d="M35 61 L45 61" stroke="#FF9999" stroke-width="0.8" />
+    <path d="M33 63 L47 63" stroke="#FF9999" stroke-width="0.8" />
+    <path d="M31 65 L49 65" stroke="#FF9999" stroke-width="0.8" />
+    <path d="M33 67 L47 67" stroke="#FF9999" stroke-width="0.8" />
+
+    <!-- Декоративные элементы -->
+    <circle cx="25" cy="25" r="2" fill="#FF6B6B" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="55" cy="25" r="2" fill="#FF6B6B" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2s" repeatCount="indefinite" begin="0.5s" />
+    </circle>
+</svg>
                     </div>
                     <h3>Лазерная эпиляция</h3>
                     <p>Современная технология удаления волос с долговременным эффектом. Безопасно, безболезненно и эффективно</p>
@@ -155,74 +191,110 @@
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="nail-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#FFC0CB;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#FFB6C1;stop-opacity:1" />
-                                </linearGradient>
-                                <filter id="nail-shadow">
-                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
-                                </filter>
-                            </defs>
-                            <ellipse cx="25" cy="35" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
-                            <ellipse cx="35" cy="30" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
-                            <ellipse cx="45" cy="30" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
-                            <ellipse cx="55" cy="35" rx="8" ry="15" fill="url(#nail-grad)" filter="url(#nail-shadow)"/>
-                            <rect x="20" y="45" width="40" height="15" rx="10" fill="#FFF0F5"/>
-                            <circle cx="20" cy="20" r="2" fill="#FFC0CB" opacity="0.6"/>
-                            <circle cx="60" cy="20" r="2" fill="#FFC0CB" opacity="0.6"/>
-                            <path d="M30 10 L35 15 M45 15 L50 10" stroke="#FFB6C1" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-                        </svg>
+    <defs>
+        <linearGradient id="nail-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFC0CB;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FF8DA1;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="nail-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFDCE3;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFBCC9;stop-opacity:1" />
+        </linearGradient>
+        <filter id="nail-shadow">
+            <feDropShadow dx="1" dy="3" stdDeviation="2" flood-opacity="0.3" />
+        </filter>
+        <filter id="tool-shadow">
+            <feDropShadow dx="2" dy="2" stdDeviation="1" flood-opacity="0.3" />
+        </filter>
+    </defs>
+
+    <!-- Кисть руки -->
+    <rect x="15" y="40" width="50" height="20" rx="10" fill="#FFF0F5" filter="url(#nail-shadow)" />
+
+    <!-- Ногти -->
+    <ellipse cx="22" cy="30" rx="6" ry="10" fill="url(#nail-grad-1)" filter="url(#nail-shadow)" transform="rotate(-5 22 30)" />
+    <ellipse cx="33" cy="25" rx="6" ry="10" fill="url(#nail-grad-1)" filter="url(#nail-shadow)" />
+    <ellipse cx="45" cy="25" rx="6" ry="10" fill="url(#nail-grad-1)" filter="url(#nail-shadow)" />
+    <ellipse cx="57" cy="30" rx="6" ry="10" fill="url(#nail-grad-1)" filter="url(#nail-shadow)" transform="rotate(5 57 30)" />
+
+    <!-- Блики на ногтях -->
+    <ellipse cx="22" cy="28" rx="2" ry="4" fill="#FFF" opacity="0.5" transform="rotate(-5 22 28)" />
+    <ellipse cx="33" cy="23" rx="2" ry="4" fill="#FFF" opacity="0.5" />
+    <ellipse cx="45" cy="23" rx="2" ry="4" fill="#FFF" opacity="0.5" />
+    <ellipse cx="57" cy="28" rx="2" ry="4" fill="#FFF" opacity="0.5" transform="rotate(5 57 28)" />
+
+    <!-- Инструменты -->
+    <rect x="50" y="10" width="2" height="12" rx="1" fill="#AAA" filter="url(#tool-shadow)" transform="rotate(30 50 10)" />
+    <path d="M50 10 L55 8" stroke="#AAA" stroke-width="2" stroke-linecap="round" filter="url(#tool-shadow)" />
+
+    <rect x="25" y="10" width="2" height="12" rx="1" fill="#AAA" filter="url(#tool-shadow)" transform="rotate(-20 25 10)" />
+    <path d="M25 10 L20 7" stroke="#AAA" stroke-width="2" stroke-linecap="round" filter="url(#tool-shadow)" />
+
+    <!-- Лак для ногтей -->
+    <path d="M38 15 L42 15 L44 10 L36 10 Z" fill="#333" filter="url(#tool-shadow)" />
+    <rect x="36" y="15" width="8" height="10" rx="1" fill="url(#nail-grad-1)" filter="url(#tool-shadow)" />
+    <rect x="38" y="15" width="4" height="1" fill="#333" />
+</svg>
                     </div>
-                    <h3>Маникюр</h3>
+                    <h3>Ноктевой сервис</h3>
                     <p>Классический, аппаратный, европейский маникюр. Долговременные покрытия и дизайн любой сложности</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="pedi-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#B19CD9;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#8A7FBA;stop-opacity:1" />
-                                </linearGradient>
-                                <filter id="pedi-shadow">
-                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
-                                </filter>
-                            </defs>
-                            <ellipse cx="40" cy="45" rx="20" ry="15" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
-                            <ellipse cx="30" cy="30" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
-                            <ellipse cx="40" cy="25" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
-                            <ellipse cx="50" cy="30" rx="6" ry="10" fill="url(#pedi-grad)" filter="url(#pedi-shadow)"/>
-                            <path d="M25 55 Q40 60 55 55" fill="#F0EBFF" stroke="url(#pedi-grad)" stroke-width="2"/>
-                            <circle cx="20" cy="15" r="2" fill="#B19CD9" opacity="0.6"/>
-                            <circle cx="60" cy="15" r="2" fill="#B19CD9" opacity="0.6"/>
-                            <circle cx="40" cy="65" r="2" fill="#B19CD9" opacity="0.6"/>
-                        </svg>
-                    </div>
-                    <h3>Педикюр</h3>
-                    <p>Классический, аппаратный, медицинский педикюр. Уход за стопами и решение проблем с вросшими ногтями</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="cosm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#5B9FCC;stop-opacity:1" />
-                                </linearGradient>
-                                <filter id="cosm-shadow">
-                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
-                                </filter>
-                            </defs>
-                            <circle cx="40" cy="35" r="20" fill="url(#cosm-grad)" filter="url(#cosm-shadow)"/>
-                            <circle cx="40" cy="35" r="15" fill="#E8F4F8"/>
-                            <circle cx="35" cy="30" r="2" fill="#5B9FCC"/>
-                            <circle cx="45" cy="30" r="2" fill="#5B9FCC"/>
-                            <path d="M35 40 Q40 43 45 40" fill="none" stroke="#5B9FCC" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="20" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
-                            <circle cx="60" cy="25" r="3" fill="#87CEEB" opacity="0.6"/>
-                            <path d="M30 15 L35 10 L40 15 L45 10 L50 15" stroke="#87CEEB" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-                        </svg>
+    <defs>
+        <linearGradient id="face-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFE6D5;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFCCB3;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="cosm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#5B9FCC;stop-opacity:1" />
+        </linearGradient>
+        <filter id="face-shadow">
+            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.2" />
+        </filter>
+        <filter id="mask-shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="1" flood-opacity="0.2" />
+        </filter>
+        <filter id="glow-effect">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <!-- Лицо - основа -->
+    <ellipse cx="40" cy="40" rx="25" ry="30" fill="url(#face-grad)" filter="url(#face-shadow)" />
+
+    <!-- Косметическая маска -->
+    <path d="M25 30 Q40 45 55 30" fill="none" stroke="url(#cosm-grad)" stroke-width="2" stroke-dasharray="2,1" opacity="0.7" filter="url(#glow-effect)" />
+    <path d="M25 40 Q40 55 55 40" fill="none" stroke="url(#cosm-grad)" stroke-width="2" stroke-dasharray="2,1" opacity="0.7" filter="url(#glow-effect)" />
+
+    <!-- Зоны воздействия -->
+    <circle cx="30" cy="35" r="5" fill="url(#cosm-grad)" opacity="0.3" filter="url(#mask-shadow)" />
+    <circle cx="50" cy="35" r="5" fill="url(#cosm-grad)" opacity="0.3" filter="url(#mask-shadow)" />
+    <path d="M30 50 Q40 55 50 50" fill="none" stroke="url(#cosm-grad)" stroke-width="3" opacity="0.3" filter="url(#mask-shadow)" />
+
+    <!-- Черты лица -->
+    <ellipse cx="32" cy="32" rx="3" ry="2" fill="#333" opacity="0.7" />
+    <ellipse cx="48" cy="32" rx="3" ry="2" fill="#333" opacity="0.7" />
+
+    <!-- Косметический аппарат -->
+    <rect x="60" y="20" width="6" height="12" rx="2" fill="#DDD" filter="url(#face-shadow)" />
+    <circle cx="63" cy="20" r="3" fill="url(#cosm-grad)" />
+    <path d="M60 30 L55 35" stroke="#DDD" stroke-width="2" />
+    <circle cx="55" cy="35" r="2" fill="url(#cosm-grad)" filter="url(#glow-effect)">
+        <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Декоративные элементы -->
+    <circle cx="20" cy="25" r="2" fill="#87CEEB" opacity="0.6">
+        <animate attributeName="r" values="2;2.5;2" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="60" cy="25" r="2" fill="#87CEEB" opacity="0.6">
+        <animate attributeName="r" values="2;2.5;2" dur="3s" repeatCount="indefinite" begin="1s" />
+    </circle>
+</svg>
                     </div>
                     <h3>Косметология</h3>
                     <p>Профессиональный уход за кожей лица: чистки, пилинги, массажи, маски и аппаратные процедуры</p>
@@ -230,25 +302,53 @@
                 <div class="service-card">
                     <div class="service-icon">
                         <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="brow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#6B5B45;stop-opacity:1" />
-                                </linearGradient>
-                                <filter id="brow-shadow">
-                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
-                                </filter>
-                            </defs>
-                            <path d="M20 30 Q30 25 40 30" fill="none" stroke="url(#brow-grad)" stroke-width="4" stroke-linecap="round" filter="url(#brow-shadow)"/>
-                            <path d="M40 30 Q50 25 60 30" fill="none" stroke="url(#brow-grad)" stroke-width="4" stroke-linecap="round" filter="url(#brow-shadow)"/>
-                            <circle cx="30" cy="40" r="3" fill="#87CEEB"/>
-                            <circle cx="50" cy="40" r="3" fill="#87CEEB"/>
-                            <path d="M25 50 Q30 48 35 50" fill="none" stroke="url(#brow-grad)" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M45 50 Q50 48 55 50" fill="none" stroke="url(#brow-grad)" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="15" cy="20" r="2" fill="#8B7355" opacity="0.6"/>
-                            <circle cx="65" cy="20" r="2" fill="#8B7355" opacity="0.6"/>
-                            <circle cx="40" cy="60" r="2" fill="#8B7355" opacity="0.6"/>
-                        </svg>
+    <defs>
+        <linearGradient id="brow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#6B5B45;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="eye-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E0F4FF;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#B3E0FF;stop-opacity:1" />
+        </linearGradient>
+        <filter id="brow-shadow">
+            <feDropShadow dx="1" dy="2" stdDeviation="1" flood-opacity="0.3" />
+        </filter>
+        <filter id="eye-shadow">
+            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.2" />
+        </filter>
+        <filter id="lash-shadow">
+            <feDropShadow dx="0" dy="1" stdDeviation="0.5" flood-opacity="0.5" />
+        </filter>
+    </defs>
+
+    <!-- Глаз -->
+    <ellipse cx="40" cy="45" rx="20" ry="15" fill="#FFFFFF" filter="url(#eye-shadow)" />
+    <circle cx="40" cy="45" r="10" fill="url(#eye-grad)" />
+    <circle cx="40" cy="45" r="5" fill="#333" />
+    <circle cx="38" cy="43" r="2" fill="#FFFFFF" opacity="0.7" />
+
+    <!-- Брови -->
+    <path d="M20 25 Q30 20 40 25" fill="none" stroke="url(#brow-grad)" stroke-width="5" stroke-linecap="round" filter="url(#brow-shadow)" />
+    <path d="M40 25 Q50 20 60 25" fill="none" stroke="url(#brow-grad)" stroke-width="5" stroke-linecap="round" filter="url(#brow-shadow)" />
+
+    <!-- Ресницы верхние -->
+    <path d="M25 35 L23 30" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M30 33 L28 27" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M35 32 L35 25" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M40 31 L40 24" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M45 32 L45 25" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M50 33 L52 27" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+    <path d="M55 35 L57 30" stroke="#333" stroke-width="1.5" filter="url(#lash-shadow)" />
+
+    <!-- Декоративные элементы -->
+    <circle cx="20" cy="15" r="2" fill="#8B7355" opacity="0.6" />
+    <circle cx="60" cy="15" r="2" fill="#8B7355" opacity="0.6" />
+
+    <!-- Инструмент для ресниц -->
+    <path d="M65 40 Q60 35 65 30" fill="none" stroke="#AAA" stroke-width="1.5" />
+    <rect x="60" y="35" width="10" height="2" rx="1" fill="#CCC" transform="rotate(-30 60 35)" />
+</svg>
                     </div>
                     <h3>Брови и ресницы</h3>
                     <p>Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности</p>
@@ -282,8 +382,8 @@
                             <circle cx="40" cy="10" r="2" fill="#FFB6C1" opacity="0.6"/>
                         </svg>
                     </div>
-                    <h3>Опытные специалисты</h3>
-                    <p>Команда сертифицированных профессионалов с многолетним опытом</p>
+                    <h3>Искусство заботы</h3>
+                    <p>Мы превращаем каждый визит в особенное событие, предвосхищая ваши пожелания</p>
                 </div>
                 <div class="advantage-item">
                     <div class="advantage-icon">
@@ -447,13 +547,12 @@
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <div class="phone-info">
-                            <p><a href="tel:+381112345678">+381 11 234 5678</a></p>
-                            <p><a href="tel:+381601234567">+381 60 123 4567</a></p>
+                            <p><a href="tel:+381668049969">+381 66 8049 969</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">✉️</div>
-                        <p class="email-info"><a href="mailto:info@Skinography.rs">info@Skinography.rs</a></p>
+                        <p class="email-info"><a href="mailto:skinographydoo@gmail.com">skinographydoo@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>

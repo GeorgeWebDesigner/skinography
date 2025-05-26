@@ -497,6 +497,7 @@
     display: flex;
     gap: 1rem;
     z-index: 3;
+    display: none;
 }
 
 .indicator {
@@ -595,6 +596,7 @@
     .slide-indicators {
         bottom: 120px;
         gap: 0.5rem;
+        display: none;
     }
 
     .indicator {
@@ -630,7 +632,7 @@
             font-size: 3rem;
             font-family: 'Stylish Mother', cursive;
             font-weight: 100;
-            letter-spacing: 0.2em;
+            letter-spacing: 4px;
             margin-bottom: 3rem;
             position: relative;
         }
@@ -686,6 +688,68 @@
             width: 100%;
             object-fit: center;
         }
+
+        /* Добавьте эти стили в ваш файл CSS для обновленной секции "О нас" */
+
+.about-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.4;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+}
+
+.highlight {
+    background: linear-gradient(to bottom, transparent 40%, rgba(75, 155, 30, 0.1) 40%);
+    padding: 0 4px;
+    font-weight: 400;
+}
+
+.philosophy-points {
+    margin: 1.5rem 0;
+    padding-left: 0.5rem;
+}
+
+.philosophy-points p {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+.accent-point {
+    position: absolute;
+    left: 0;
+    color: #4b9b1e;
+    font-size: 1.2rem;
+}
+
+.about-conclusion {
+    margin-top: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #4b9b1e;
+}
+
+/* Медиа запросы для адаптивности */
+@media (max-width: 768px) {
+    .about-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .about-text {
+        order: 2;
+    }
+
+    .about-image {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+}
 
         /* Services */
         .services {
@@ -1426,6 +1490,7 @@
 
     .slide-indicators {
         bottom: 80px;
+        display: none;
     }
 
     .indicator {

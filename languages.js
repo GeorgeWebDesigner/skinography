@@ -2,7 +2,6 @@
 const translations = {
     ru: {
         nav: {
-            about: 'О нас',
             services: 'Услуги',
             advantages: 'Преимущества',
             portfolio: 'Портфолио',
@@ -15,7 +14,7 @@ const translations = {
             ourServices: 'Наши услуги'
         },
         about: {
-            title: 'О НАС',
+            title: 'НАША ФИЛОСОФИЯ',
             text1: 'Добро пожаловать в Skinography - ваш премиальный салон красоты в самом сердце Белграда. Мы специализируемся на инновационных процедурах для кожи, используя только самые современные технологии и продукты высочайшего качества.',
             text2: 'Наша миссия - помочь каждому клиенту раскрыть естественную красоту и достичь идеального состояния кожи. Мы верим, что красота начинается с здоровой кожи, и именно поэтому мы подходим к каждому клиенту индивидуально, создавая персонализированные программы ухода.'
         },
@@ -26,12 +25,8 @@ const translations = {
                 desc: 'Современная технология удаления волос с долговременным эффектом. Безопасно, безболезненно и эффективно'
             },
             manicure: {
-                title: 'Маникюр',
+                title: 'Ногтевой сервис',
                 desc: 'Классический, аппаратный, европейский маникюр. Долговременные покрытия и дизайн любой сложности'
-            },
-            pedicure: {
-                title: 'Педикюр',
-                desc: 'Классический, аппаратный, медицинский педикюр. Уход за стопами и решение проблем с вросшими ногтями'
             },
             cosmetology: {
                 title: 'Косметология',
@@ -45,8 +40,8 @@ const translations = {
         advantages: {
             title: 'НАШИ ПРЕИМУЩЕСТВА',
             experts: {
-                title: 'Опытные специалисты',
-                desc: 'Команда сертифицированных профессионалов с многолетним опытом'
+                title: 'Искусство заботы',
+                desc: 'Мы превращаем каждый визит в особенное событие, предвосхищая ваши пожелания'
             },
             equipment: {
                 title: 'Современное оборудование',
@@ -102,7 +97,6 @@ const translations = {
     },
     sr: {
         nav: {
-            about: 'O nama',
             services: 'Usluge',
             advantages: 'Prednosti',
             portfolio: 'Portfolio',
@@ -202,7 +196,6 @@ const translations = {
     },
     en: {
         nav: {
-            about: 'About',
             services: 'Services',
             advantages: 'Advantages',
             portfolio: 'Portfolio',
@@ -305,9 +298,15 @@ const translations = {
 // Language switching functionality
 let currentLang = localStorage.getItem('preferred-language') || 'ru';
 
+// Эту функцию нужно добавить в languages.js
+
+// Обновленная функция для переключения языков
 function updateLanguage(lang) {
     currentLang = lang;
     const t = translations[lang];
+
+    // Обновляем меню (десктопное и мобильное)
+    updateAllMenus(lang);
 
     // Update document language and title
     document.documentElement.lang = lang;
@@ -317,15 +316,6 @@ function updateLanguage(lang) {
         en: 'Skinography - Best Treatment | Beauty Salon in Belgrade'
     };
     document.title = titles[lang];
-
-    // Update navigation
-    const navItems = document.querySelectorAll('.nav-links a');
-    const navKeys = ['about', 'services', 'advantages', 'portfolio', 'booking', 'contacts'];
-    navItems.forEach((link, index) => {
-        if (navKeys[index] && t.nav[navKeys[index]]) {
-            link.textContent = t.nav[navKeys[index]];
-        }
-    });
 
     // Update hero section
     const tagline = document.querySelector('.tagline');
@@ -350,14 +340,15 @@ function updateLanguage(lang) {
         if (element) element.textContent = text;
     });
 
-    // Update about section
-    const aboutTexts = document.querySelectorAll('.about-text p');
-    if (aboutTexts[0]) aboutTexts[0].textContent = t.about.text1;
-    if (aboutTexts[1]) aboutTexts[1].textContent = t.about.text2;
+    // Update about section (для обновленной структуры с философией)
+    const aboutSubtitle = document.querySelector('.about-subtitle');
+    if (aboutSubtitle && t.about.subtitle) {
+        aboutSubtitle.textContent = t.about.subtitle;
+    }
 
     // Update services
     const serviceCards = document.querySelectorAll('.service-card');
-    const serviceKeys = ['laser', 'manicure', 'pedicure', 'cosmetology', 'browsLashes'];
+    const serviceKeys = ['laser', 'manicure', 'cosmetology', 'browsLashes'];
     serviceCards.forEach((card, index) => {
         if (serviceKeys[index] && t.services[serviceKeys[index]]) {
             const title = card.querySelector('h3');
@@ -426,16 +417,29 @@ function updateLanguage(lang) {
     if (footerTexts[0]) footerTexts[0].textContent = `© 2024 Skinography. ${t.footer.rights}`;
     if (footerTexts[1]) footerTexts[1].textContent = t.footer.tagline;
 
-    // Update active language button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-        }
-    });
-
     // Save preference
     localStorage.setItem('preferred-language', lang);
+}
+
+function updateAllMenus(lang) {
+    const t = translations[lang];
+
+    // Обновляем основную навигацию
+    const navItems = document.querySelectorAll('.nav-links a');
+    updateNavLinks(navItems, t.nav);
+
+    // Обновляем мобильную навигацию
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-links a');
+    updateNavLinks(mobileNavItems, t.nav);
+}
+
+function updateNavLinks(links, translations) {
+    links.forEach(link => {
+        const section = link.getAttribute('data-section');
+        if (section && translations[section]) {
+            link.textContent = translations[section];
+        }
+    });
 }
 
 // Initialize language buttons
