@@ -538,7 +538,7 @@
     font-family: 'Stylish Mother', cursive;
     font-size: 5rem;
     font-weight: normal;
-    letter-spacing: 0.3em;
+    letter-spacing: 4px;
     margin-bottom: 1rem;
     color: #1a1a1a;
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
@@ -826,6 +826,12 @@
             filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
         }
 
+        .service-icon img {
+            width: 80px;
+            height: 80px;
+
+        }
+
         .service-icon svg {
             width: 100%;
             height: 100%;
@@ -835,6 +841,134 @@
             transform: scale(1.1) translateY(-5px);
             filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
         }
+
+        /* Стили для иконок с 3D-эффектом */
+
+/* Контейнеры иконок */
+.service-icon, .advantage-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Карточки услуг и преимуществ */
+.service-card, .advantage-item {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффекты при наведении */
+.service-card:hover, .advantage-item:hover {
+    transform: translateY(-12px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.12),
+        0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-card:hover .service-icon,
+.advantage-item:hover .advantage-icon {
+    transform: translateY(-8px) rotateY(10deg);
+}
+
+/* Улучшенные тени для SVG внутри иконок */
+.service-icon svg, .advantage-icon svg {
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.15));
+    transition: all 0.4s ease;
+    width: 100%;
+    height: 100%;
+}
+
+.service-card:hover .service-icon svg,
+.advantage-item:hover .advantage-icon svg {
+    filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+/* Градиентный фон при наведении */
+.service-card::before,
+.advantage-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.service-card:hover::before,
+.advantage-item:hover::before {
+    opacity: 1;
+}
+
+/* Заголовки */
+.service-card h3,
+.advantage-item h3 {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover h3,
+.advantage-item:hover h3 {
+    transform: translateY(-2px);
+}
+
+/* Описания */
+.service-card p,
+.advantage-item p {
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Улучшенный фокус для доступности */
+.service-card:focus,
+.advantage-item:focus {
+    outline: none;
+    box-shadow:
+        0 0 0 3px rgba(75, 155, 30, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Специфические стили для разных разделов */
+.services .service-icon {
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.advantages .advantage-icon {
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .service-icon, .advantage-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .service-card, .advantage-item {
+        padding: 2rem 1.2rem;
+    }
+}
 
         .service-card:hover .service-icon svg {
             animation: gentle-bounce 1s ease-in-out;
