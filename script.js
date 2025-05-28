@@ -430,3 +430,343 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 15000); // 15 секунд на загрузку
     });
 });
+
+// JavaScript для блока "Пакетные услуги"
+document.addEventListener('DOMContentLoaded', function() {
+    // Анимация появления карточек при прокрутке
+    const packagesObserverOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const packagesObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, packagesObserverOptions);
+
+    // Наблюдаем за карточками пакетов услуг
+    document.querySelectorAll('.package-card').forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `all 0.6s ease ${index * 0.2}s`;
+        packagesObserver.observe(card);
+    });
+
+    // Обработчик клика по кнопке "Записаться"
+    document.querySelectorAll('.btn-package').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Получаем ID пакета
+            const packageId = this.closest('.package-card').id;
+            const packageName = this.closest('.package-card').querySelector('.package-title').textContent;
+
+            // Сохраняем выбранный пакет в sessionStorage для использования на странице записи
+            sessionStorage.setItem('selectedPackage', packageId);
+            sessionStorage.setItem('packageName', packageName);
+
+            // Прокручиваем до секции записи
+            const bookingSection = document.querySelector('#booking');
+            if (bookingSection) {
+                const headerOffset = 80;
+                const bookingSectionPosition = bookingSection.getBoundingClientRect().top;
+                const offsetPosition = bookingSectionPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Подсветка секции записи для привлечения внимания
+                setTimeout(() => {
+                    bookingSection.classList.add('highlight');
+
+                    setTimeout(() => {
+                        bookingSection.classList.remove('highlight');
+                    }, 1500);
+                }, 1000);
+            }
+        });
+    });
+
+    // Добавляем эффект подсветки для секции записи
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes highlightSection {
+            0%, 100% { box-shadow: 0 0 0 rgba(75, 155, 30, 0); }
+            50% { box-shadow: 0 0 30px rgba(75, 155, 30, 0.3); }
+        }
+
+        .booking.highlight {
+            animation: highlightSection 1.5s ease;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Функция для обновления фоновых изображений (будет использоваться позже)
+    window.updatePackageBackgrounds = function(backgroundUrls) {
+        if (!backgroundUrls || typeof backgroundUrls !== 'object') return;
+
+        Object.keys(backgroundUrls).forEach(packageId => {
+            const card = document.getElementById(packageId);
+            if (card) {
+                const backdrop = card.querySelector('.package-backdrop');
+                if (backdrop && backgroundUrls[packageId]) {
+                    backdrop.style.backgroundImage = `url('${backgroundUrls[packageId]}')`;
+                }
+            }
+        });
+    };
+});
+
+// JavaScript для блока "Стоимость услуг"
+document.addEventListener('DOMContentLoaded', function() {
+    // Данные для слайдов - обновите пути к вашим изображениям
+    const priceSlides = [
+        {
+                    id: 1,
+                    image: '../price-slider/11.jpeg', // Здесь должен быть путь к первому изображению
+                    title: 'Лазерная эпиляция для женщин'
+                },
+                {
+                    id: 2,
+                    image: '../price-slider/22.jpeg', // Здесь должен быть путь ко второму изображению
+                    title: 'Брови и ресницы'
+                },
+                {
+                    id: 3,
+                    image: '../price-slider/33.jpeg', // И так далее...
+                    title: 'Маникюр и педикюр'
+                },
+                {
+                    id: 4,
+                    image: '../price-slider/44.jpeg',
+                    title: 'Лазерная эпиляция для мужчин'
+                },
+                {
+                    id: 5,
+                    image: '../price-slider/55.jpeg',
+                    title: 'Косметология'
+                }
+    ];
+
+    // Глобальная переменная для хранения текущего индекса слайда
+    let currentIndex = 0;
+
+    // Инициализируем слайдер только если он присутствует на странице
+    const initPriceSlider = function() {
+        const sliderContainer = document.querySelector('.price-slider');
+        const indicatorsContainer = document.querySelector('.slider-indicators');
+
+        // Проверяем, существуют ли контейнеры
+        if (!sliderContainer || !indicatorsContainer) {
+            console.log('Слайдер или контейнер индикаторов не найден');
+            return;
+        }
+
+        console.log('Инициализация слайдера цен');
+
+        // Очищаем контейнеры перед инициализацией
+        sliderContainer.innerHTML = '';
+        indicatorsContainer.innerHTML = '';
+
+        // Создаем слайды
+        priceSlides.forEach((slide, index) => {
+            // Создаем элемент слайда
+            const slideEl = document.createElement('div');
+            slideEl.className = 'price-slide';
+            slideEl.setAttribute('data-index', index);
+
+            // Создаем изображение
+            const img = document.createElement('img');
+            img.src = slide.image;
+            img.alt = slide.title;
+
+            // Добавляем изображение в слайд
+            slideEl.appendChild(img);
+
+            // Добавляем слайд в контейнер
+            sliderContainer.appendChild(slideEl);
+
+            // Создаем индикатор
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            indicator.setAttribute('data-index', index);
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        // Устанавливаем первый слайд как активный
+        setActiveSlide(0);
+
+        // Добавляем обработчики событий для навигации
+        setupNavigation();
+    };
+
+    // Функция для установки активного слайда
+    function setActiveSlide(index) {
+        const slideElements = document.querySelectorAll('.price-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slideElements.length;
+
+        // Проверка наличия слайдов
+        if (slideElements.length === 0) {
+            console.log('Слайды не найдены');
+            return;
+        }
+
+        console.log(`Устанавливаем активный слайд: ${index}`);
+
+        // Обновляем классы для всех слайдов
+        slideElements.forEach((slide, i) => {
+            slide.classList.remove('active', 'prev', 'next', 'prev-2', 'next-2', 'prev-3', 'next-3');
+
+            // Вычисляем относительную позицию от активного слайда
+            const position = (i - index + totalSlides) % totalSlides;
+
+            if (position === 0) {
+                // Активный слайд
+                slide.classList.add('active');
+            } else if (position === 1) {
+                // Следующий слайд
+                slide.classList.add('next');
+            } else if (position === 2) {
+                // Второй следующий слайд
+                slide.classList.add('next-2');
+            } else if (position === 3) {
+                // Третий следующий слайд
+                slide.classList.add('next-3');
+            } else if (position === totalSlides - 1) {
+                // Предыдущий слайд
+                slide.classList.add('prev');
+            } else if (position === totalSlides - 2) {
+                // Второй предыдущий слайд
+                slide.classList.add('prev-2');
+            } else if (position === totalSlides - 3) {
+                // Третий предыдущий слайд
+                slide.classList.add('prev-3');
+            }
+        });
+
+        // Обновляем индикаторы
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+
+        // Сохраняем текущий индекс
+        currentIndex = index;
+    }
+
+    // Функция для настройки навигации
+    function setupNavigation() {
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const slideElements = document.querySelectorAll('.price-slide');
+        const totalSlides = slideElements.length;
+
+        console.log(`Настройка навигации. Кнопка Пред: ${!!prevBtn}, Кнопка След: ${!!nextBtn}, Всего слайдов: ${totalSlides}`);
+
+        // Проверяем наличие кнопок и слайдов
+        if (!prevBtn || !nextBtn || totalSlides === 0) {
+            console.log('Кнопки навигации или слайды не найдены');
+            return;
+        }
+
+        // Очищаем возможные старые обработчики
+        prevBtn.replaceWith(prevBtn.cloneNode(true));
+        nextBtn.replaceWith(nextBtn.cloneNode(true));
+
+        // Получаем новые ссылки на кнопки после клонирования
+        const newPrevBtn = document.querySelector('.prev-btn');
+        const newNextBtn = document.querySelector('.next-btn');
+
+        // Добавляем обработчики с выводом в консоль
+        newPrevBtn.addEventListener('click', function() {
+            console.log('Кнопка "Предыдущий" нажата');
+            const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            setActiveSlide(newIndex);
+        });
+
+        newNextBtn.addEventListener('click', function() {
+            console.log('Кнопка "Следующий" нажата');
+            const newIndex = (currentIndex + 1) % totalSlides;
+            setActiveSlide(newIndex);
+        });
+
+        // Обработчики для индикаторов
+        document.querySelectorAll('.indicator').forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                const index = parseInt(indicator.getAttribute('data-index'));
+                console.log(`Индикатор ${index} нажат`);
+                setActiveSlide(index);
+            });
+        });
+
+        // Обработчик клика по слайду
+        document.querySelectorAll('.price-slide').forEach(slide => {
+            slide.addEventListener('click', () => {
+                const index = parseInt(slide.getAttribute('data-index'));
+                if (index !== currentIndex) {
+                    console.log(`Слайд ${index} нажат`);
+                    setActiveSlide(index);
+                }
+            });
+        });
+
+        // Свайп для мобильных устройств
+        setupTouchNavigation();
+    }
+
+    // Функция для настройки свайп-навигации
+    function setupTouchNavigation() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const slider = document.querySelector('.price-slider-container');
+
+        if (!slider) {
+            console.log('Контейнер слайдера не найден для свайп-навигации');
+            return;
+        }
+
+        slider.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        slider.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const slideElements = document.querySelectorAll('.price-slide');
+            const totalSlides = slideElements.length;
+            const swipeThreshold = 50; // Минимальное расстояние для свайпа
+
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Свайп влево - следующий слайд
+                console.log('Свайп влево');
+                const newIndex = (currentIndex + 1) % totalSlides;
+                setActiveSlide(newIndex);
+            }
+
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Свайп вправо - предыдущий слайд
+                console.log('Свайп вправо');
+                const newIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                setActiveSlide(newIndex);
+            }
+        }
+    }
+
+    // Инициализируем слайдер
+    initPriceSlider();
+
+    // Добавляем обработчик события resize для адаптивности
+    window.addEventListener('resize', function() {
+        // Можно добавить дополнительную логику для адаптации слайдера при изменении размера окна
+    });
+});

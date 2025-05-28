@@ -15,8 +15,8 @@
     <style>
     @font-face {
         font-family: 'Stylish Mother';
-        src: url('Stylish-Mother.otf') format('otf'),
-        url('Stylish-Mother.ttf') format('truetype');
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -72,12 +72,12 @@
 <section class="hero" id="home">
     <!-- Слайдер фоновых изображений -->
     <div class="hero-slider">
-        <div class="slide active" style="background-image: url('1.jpeg')"></div>
-        <div class="slide" style="background-image: url('2.jpeg')"></div>
-        <div class="slide" style="background-image: url('3.jpeg')"></div>
-        <div class="slide" style="background-image: url('4.jpeg')"></div>
-        <div class="slide" style="background-image: url('5.jpeg')"></div>
-        <div class="slide" style="background-image: url('6.jpeg')"></div>
+        <div class="slide active" style="background-image: url('../hero/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpeg')"></div>
     </div>
 
     <!-- Оверлей для читабельности текста -->
@@ -127,10 +127,10 @@
             <div class="about-image-slider">
                 <!-- Контейнер для слайдов -->
                 <div class="about-slider-container">
-                    <div class="about-slide active" style="background-image: url('2.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('5.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('4.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('6.jpeg')"></div>
+                    <div class="about-slide active" style="background-image: url('../hero/2.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/5.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/4.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/6.jpeg')"></div>
                 </div>
 
                 <!-- Оверлей для лучшей читаемости текста поверх изображения, если нужно -->
@@ -181,6 +181,175 @@
                     <h3>Брови и ресницы</h3>
                     <p>Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок "Пакетные услуги" -->
+<section class="packages" id="packages">
+    <div class="container">
+        <h2 class="section-title">ПАКЕТНЫЕ УСЛУГИ</h2>
+        <p class="section-subtitle">Выгодные комплексы процедур для разных потребностей</p>
+
+        <div class="packages-grid">
+            <!-- Пакет "Солнце" -->
+            <div class="package-card" id="sun-package">
+                <div class="package-header">
+                    <div class="package-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="sun-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="sun-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <circle cx="40" cy="40" r="20" fill="url(#sun-grad)" filter="url(#sun-shadow)">
+                                <animate attributeName="opacity" values="1;0.8;1" dur="3s" repeatCount="indefinite" />
+                            </circle>
+                            <g>
+                                <line x1="40" y1="15" x2="40" y2="10" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="40" y1="70" x2="40" y2="65" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="15" y1="40" x2="10" y2="40" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="70" y1="40" x2="65" y2="40" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="22" y1="22" x2="18" y2="18" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="62" y1="62" x2="58" y2="58" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="22" y1="58" x2="18" y2="62" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                                <line x1="62" y1="18" x2="58" y2="22" stroke="url(#sun-grad)" stroke-width="3" stroke-linecap="round" />
+                            </g>
+                        </svg>
+                    </div>
+                    <h3 class="package-title">Солнце</h3>
+                </div>
+                <div class="package-content">
+                    <ul class="package-services">
+                        <li>Маникюр гигиенический</li>
+                        <li>Окрашивание бровей</li>
+                        <li>Педикюр гигиенический</li>
+                    </ul>
+                    <div class="package-price">
+                        <div class="price-original">9 500 RSD</div>
+                        <div class="price-discount">8 000 RSD</div>
+                    </div>
+                    <a href="#booking" class="btn btn-package">Записаться</a>
+                </div>
+                <div class="package-backdrop"></div>
+            </div>
+
+            <!-- Пакет "Теннисистка" -->
+            <div class="package-card" id="tennis-package">
+                <div class="package-header">
+                    <div class="package-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="tennis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#7CFC00;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#32CD32;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="tennis-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <circle cx="40" cy="40" r="20" fill="url(#tennis-grad)" filter="url(#tennis-shadow)" />
+                            <circle cx="40" cy="40" r="18" fill="none" stroke="white" stroke-width="2" stroke-dasharray="4,4" />
+                            <path d="M25 25 Q40 15 55 25 Q65 40 55 55 Q40 65 25 55 Q15 40 25 25" fill="none" stroke="white" stroke-width="2" />
+                            <rect x="30" y="10" width="4" height="30" rx="2" transform="rotate(20 30 10)" fill="#AAA" />
+                            <rect x="35" y="10" width="10" height="4" rx="2" transform="rotate(20 35 10)" fill="#AAA" />
+                        </svg>
+                    </div>
+                    <h3 class="package-title">Теннисистка</h3>
+                </div>
+                <div class="package-content">
+                    <ul class="package-services">
+                        <li>Маникюр с покрытием гель-лак</li>
+                        <li>Педикюр гигиенический</li>
+                        <li>Ламинирование бровей</li>
+                        <li>Лазерная эпиляция подмышек</li>
+                    </ul>
+                    <div class="package-price">
+                        <div class="price-original">14 500 RSD</div>
+                        <div class="price-discount">11 000 RSD</div>
+                    </div>
+                    <a href="#booking" class="btn btn-package">Записаться</a>
+                </div>
+                <div class="package-backdrop"></div>
+            </div>
+
+            <!-- Пакет "Бизнес-вуман" -->
+            <div class="package-card" id="business-package">
+                <div class="package-header">
+                    <div class="package-icon">
+                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="business-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#337ab7;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1d486d;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="business-shadow">
+                                    <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.2"/>
+                                </filter>
+                            </defs>
+                            <rect x="20" y="30" width="40" height="30" rx="2" fill="url(#business-grad)" filter="url(#business-shadow)" />
+                            <rect x="30" y="25" width="20" height="5" rx="2" fill="url(#business-grad)" filter="url(#business-shadow)" />
+                            <circle cx="35" cy="20" r="10" fill="url(#business-grad)" filter="url(#business-shadow)" />
+                            <circle cx="45" cy="20" r="10" fill="url(#business-grad)" filter="url(#business-shadow)" />
+                            <circle cx="35" cy="20" r="8" fill="white" opacity="0.6" />
+                            <circle cx="45" cy="20" r="8" fill="white" opacity="0.6" />
+                            <line x1="30" y1="40" x2="50" y2="40" stroke="white" stroke-width="1.5" />
+                            <line x1="30" y1="45" x2="50" y2="45" stroke="white" stroke-width="1.5" />
+                            <line x1="30" y1="50" x2="40" y2="50" stroke="white" stroke-width="1.5" />
+                        </svg>
+                    </div>
+                    <h3 class="package-title">Бизнес-вуман</h3>
+                </div>
+                <div class="package-content">
+                    <ul class="package-services">
+                        <li>Маникюр с покрытием гель-лак</li>
+                        <li>Педикюр с покрытием гель-лак</li>
+                        <li>Лазерная эпиляция "Комплекс S"</li>
+                        <li>Ламинирование ресниц</li>
+                        <li>Окрашивание бровей</li>
+                    </ul>
+                    <div class="package-price">
+                        <div class="price-original">19 500 RSD</div>
+                        <div class="price-discount">16 500 RSD</div>
+                    </div>
+                    <a href="#booking" class="btn btn-package">Записаться</a>
+                </div>
+                <div class="package-backdrop"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="prices" id="prices">
+        <div class="container">
+            <h2 class="section-title">СТОИМОСТЬ УСЛУГ</h2>
+            <p class="section-subtitle">Ознакомьтесь с полным прейскурантом наших услуг</p>
+
+            <div class="price-slider-container">
+                <div class="price-slider">
+                    <!-- Слайды будут добавлены через JavaScript -->
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <button class="prev-btn" aria-label="Предыдущий слайд" type="button">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <button class="next-btn" aria-label="Следующий слайд" type="button">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="slider-indicators">
+                <!-- Индикаторы будут добавлены через JavaScript -->
             </div>
         </div>
     </section>
