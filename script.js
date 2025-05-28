@@ -529,27 +529,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const priceSlides = [
         {
                     id: 1,
-                    image: '../price-slider/11.jpeg', // Здесь должен быть путь к первому изображению
+                    image: '11.jpeg', // Здесь должен быть путь к первому изображению
                     title: 'Лазерная эпиляция для женщин'
                 },
                 {
                     id: 2,
-                    image: '../price-slider/22.jpeg', // Здесь должен быть путь ко второму изображению
+                    image: '22.jpeg', // Здесь должен быть путь ко второму изображению
                     title: 'Брови и ресницы'
                 },
                 {
                     id: 3,
-                    image: '../price-slider/33.jpeg', // И так далее...
+                    image: '33.jpeg', // И так далее...
                     title: 'Маникюр и педикюр'
                 },
                 {
                     id: 4,
-                    image: '../price-slider/44.jpeg',
+                    image: '44.jpeg',
                     title: 'Лазерная эпиляция для мужчин'
                 },
                 {
                     id: 5,
-                    image: '../price-slider/55.jpeg',
+                    image: '55.jpeg',
                     title: 'Косметология'
                 }
     ];
