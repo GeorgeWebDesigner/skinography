@@ -152,10 +152,10 @@ if (scrollIndicator) {
         this.classList.add('clicked');
 
         // Находим секцию services
-        const servicesSection = document.querySelector('#services');
-        const offset = 80;
+        const servicesSection = document.querySelector('#about');
+        const offset = 20;
         const sectionHeight = servicesSection.offsetHeight;
-        const targetPosition = servicesSection.offsetTop - offset + (sectionHeight / 2);
+        const targetPosition = servicesSection.offsetTop - offset + (sectionHeight / 4);
 
         // Запускаем плавную прокрутку
         smoothScrollTo(targetPosition, 1800); // 1.8 сек для более плавного эффекта
@@ -287,3 +287,146 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// JavaScript для модальных окон записи
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для открытия модального окна
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            // Добавляем класс active для отображения модального окна
+            modal.classList.add('active');
+
+            // Блокируем прокрутку страницы
+            document.body.classList.add('modal-open');
+
+            // Устанавливаем фокус на содержимое модального окна для доступности
+            const modalContent = modal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.setAttribute('tabindex', '-1');
+                modalContent.focus();
+            }
+        }
+    }
+
+    // Функция для закрытия модального окна
+    function closeModal(modal) {
+        // Удаляем класс active для скрытия модального окна
+        modal.classList.remove('active');
+
+        // Разблокируем прокрутку страницы
+        document.body.classList.remove('modal-open');
+    }
+
+    // Обработчик для кнопок открытия модальных окон
+    const modalOpeners = document.querySelectorAll('.open-modal');
+    modalOpeners.forEach(opener => {
+        opener.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modalId = this.getAttribute('data-modal');
+            openModal(modalId);
+        });
+    });
+
+    // Обработчик для закрытия по клику на overlay или кнопку закрытия
+    const modals = document.querySelectorAll('.modal-container');
+    modals.forEach(modal => {
+        // Закрытие по кнопке
+        const closeButton = modal.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                closeModal(modal);
+            });
+        }
+
+        // Закрытие по клику на overlay
+        const overlay = modal.querySelector('.modal-overlay');
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                closeModal(modal);
+            });
+        }
+
+        // Предотвращение закрытия при клике на контент
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    });
+
+    // Закрытие по клавише Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal-container.active');
+            if (activeModal) {
+                closeModal(activeModal);
+            }
+        }
+    });
+});
+
+// Функция для скрытия лоадера после загрузки фрейма
+function hideLoader(frame) {
+    const loader = frame.parentElement.querySelector('.booking-loader');
+    if (loader) {
+        // Небольшая задержка для плавности
+        setTimeout(() => {
+            loader.classList.add('hidden');
+        }, 300);
+    }
+}
+
+// Функция для обработки ошибок загрузки фрейма
+function handleFrameError(frameId) {
+    const frame = document.getElementById(frameId);
+    if (frame) {
+        const container = frame.parentElement;
+        const loader = container.querySelector('.booking-loader');
+
+        if (loader) {
+            // Изменяем сообщение лоадера на ошибку
+            const message = loader.querySelector('p');
+            if (message) {
+                message.textContent = 'Ошибка загрузки виджета. Попробуйте позже или перейдите на сайт сервиса.';
+                message.style.color = '#e74c3c';
+            }
+
+            // Скрываем спиннер
+            const spinner = loader.querySelector('.spinner');
+            if (spinner) {
+                spinner.style.display = 'none';
+            }
+
+            // Добавляем кнопку для перехода на сайт сервиса
+            const directLinkButton = document.createElement('a');
+            directLinkButton.href = frame.src;
+            directLinkButton.target = '_blank';
+            directLinkButton.className = 'btn btn-primary';
+            directLinkButton.style.marginTop = '1rem';
+            directLinkButton.textContent = 'Перейти на сайт записи';
+
+            loader.appendChild(directLinkButton);
+        }
+
+        // Скрываем фрейм
+        frame.style.display = 'none';
+    }
+}
+
+// Обработка ошибок загрузки фреймов
+document.addEventListener('DOMContentLoaded', function() {
+    const frames = document.querySelectorAll('.booking-frame');
+    frames.forEach(frame => {
+        frame.addEventListener('error', function() {
+            handleFrameError(this.id);
+        });
+
+        // Установка таймаута на случай, если фрейм не загрузится
+        setTimeout(() => {
+            if (!frame.contentWindow || !frame.contentWindow.document.body) {
+                handleFrameError(frame.id);
+            }
+        }, 15000); // 15 секунд на загрузку
+    });
+});

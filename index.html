@@ -15,8 +15,8 @@
     <style>
     @font-face {
         font-family: 'Stylish Mother';
-        src: url('Stylish-Mother.otf') format('otf'),
-        url('Stylish-Mother.ttf') format('truetype');
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
@@ -72,12 +72,12 @@
 <section class="hero" id="home">
     <!-- Слайдер фоновых изображений -->
     <div class="hero-slider">
-        <div class="slide active" style="background-image: url('1.jpeg')"></div>
-        <div class="slide" style="background-image: url('2.jpeg')"></div>
-        <div class="slide" style="background-image: url('3.jpeg')"></div>
-        <div class="slide" style="background-image: url('4.jpeg')"></div>
-        <div class="slide" style="background-image: url('5.jpeg')"></div>
-        <div class="slide" style="background-image: url('6.jpeg')"></div>
+        <div class="slide active" style="background-image: url('../hero/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpeg')"></div>
     </div>
 
     <!-- Оверлей для читабельности текста -->
@@ -122,8 +122,27 @@
                 <p>Мы заботимся не только о вашей внешности, но и о вашем комфорте, помогая сохранить молодость без агрессивных процедур.</p>
                 <p class="about-conclusion">Ждем вас в нашем салоне.<br>Естественная красота - это просто.</p>
             </div>
-            <div class="about-image">
-                <img src="2.jpeg" alt="Естественная красота в Skinography">
+
+            <!-- Новый слайдер вместо одиночного изображения -->
+            <div class="about-image-slider">
+                <!-- Контейнер для слайдов -->
+                <div class="about-slider-container">
+                    <div class="about-slide active" style="background-image: url('../hero/2.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/5.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/4.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/6.jpeg')"></div>
+                </div>
+
+                <!-- Оверлей для лучшей читаемости текста поверх изображения, если нужно -->
+                <div class="about-slider-overlay"></div>
+
+                <!-- Индикаторы слайдов (вертикальные) -->
+                <div class="about-slide-indicators">
+                    <span class="about-indicator active" data-slide="0"></span>
+                    <span class="about-indicator" data-slide="1"></span>
+                    <span class="about-indicator" data-slide="2"></span>
+                    <span class="about-indicator" data-slide="3"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -150,67 +169,14 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <linearGradient id="face-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#FFE6D5;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#FFCCB3;stop-opacity:1" />
-        </linearGradient>
-        <linearGradient id="cosm-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#5B9FCC;stop-opacity:1" />
-        </linearGradient>
-        <filter id="face-shadow">
-            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.2" />
-        </filter>
-        <filter id="mask-shadow">
-            <feDropShadow dx="0" dy="2" stdDeviation="1" flood-opacity="0.2" />
-        </filter>
-        <filter id="glow-effect">
-            <feGaussianBlur stdDeviation="2" result="blur" />
-            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
-    </defs>
-
-    <!-- Лицо - основа -->
-    <ellipse cx="40" cy="40" rx="25" ry="30" fill="url(#face-grad)" filter="url(#face-shadow)" />
-
-    <!-- Косметическая маска -->
-    <path d="M25 30 Q40 45 55 30" fill="none" stroke="url(#cosm-grad)" stroke-width="2" stroke-dasharray="2,1" opacity="0.7" filter="url(#glow-effect)" />
-    <path d="M25 40 Q40 55 55 40" fill="none" stroke="url(#cosm-grad)" stroke-width="2" stroke-dasharray="2,1" opacity="0.7" filter="url(#glow-effect)" />
-
-    <!-- Зоны воздействия -->
-    <circle cx="30" cy="35" r="5" fill="url(#cosm-grad)" opacity="0.3" filter="url(#mask-shadow)" />
-    <circle cx="50" cy="35" r="5" fill="url(#cosm-grad)" opacity="0.3" filter="url(#mask-shadow)" />
-    <path d="M30 50 Q40 55 50 50" fill="none" stroke="url(#cosm-grad)" stroke-width="3" opacity="0.3" filter="url(#mask-shadow)" />
-
-    <!-- Черты лица -->
-    <ellipse cx="32" cy="32" rx="3" ry="2" fill="#333" opacity="0.7" />
-    <ellipse cx="48" cy="32" rx="3" ry="2" fill="#333" opacity="0.7" />
-
-    <!-- Косметический аппарат -->
-    <rect x="60" y="20" width="6" height="12" rx="2" fill="#DDD" filter="url(#face-shadow)" />
-    <circle cx="63" cy="20" r="3" fill="url(#cosm-grad)" />
-    <path d="M60 30 L55 35" stroke="#DDD" stroke-width="2" />
-    <circle cx="55" cy="35" r="2" fill="url(#cosm-grad)" filter="url(#glow-effect)">
-        <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite" />
-    </circle>
-
-    <!-- Декоративные элементы -->
-    <circle cx="20" cy="25" r="2" fill="#87CEEB" opacity="0.6">
-        <animate attributeName="r" values="2;2.5;2" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="60" cy="25" r="2" fill="#87CEEB" opacity="0.6">
-        <animate attributeName="r" values="2;2.5;2" dur="3s" repeatCount="indefinite" begin="1s" />
-    </circle>
-</svg>
+                        <img src="cosmetology.png">
                     </div>
                     <h3>Косметология</h3>
                     <p>Профессиональный уход за кожей лица: чистки, пилинги, массажи, маски и аппаратные процедуры</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="eye.svg">
+                        <img src="eyebrows.png">
                     </div>
                     <h3>Брови и ресницы</h3>
                     <p>Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности</p>
@@ -381,12 +347,12 @@
                 <div class="widget-card" id="altegio">
                     <h3>Altegio</h3>
                     <p>Международная система онлайн-записи с удобным интерфейсом</p>
-                    <a href="#" class="btn btn-primary" style="background: #d4af37; border-color: #d4af37;">Записаться через Altegio</a>
+                    <a href="#" class="btn btn-primary open-modal" data-modal="altegioModal" style="background: #d4af37; border-color: #d4af37;">Записаться через Altegio</a>
                 </div>
                 <div class="widget-card" id="sredi-me">
                     <h3>Sredi Me</h3>
                     <p>Популярная сербская платформа для записи в салоны красоты</p>
-                    <a href="#" class="btn btn-primary" style="background: #d4af37; border-color: #d4af37;">Записаться через Sredi Me</a>
+                    <a href="#" class="btn btn-primary open-modal" data-modal="srediMeModal" style="background: #d4af37; border-color: #d4af37;">Записаться через Sredi Me</a>
                 </div>
             </div>
         </div>
@@ -471,6 +437,120 @@
 
     <script src="script.js"></script>
     <script src="languages.js"></script>
+    <script>
+        // JavaScript для слайдера в блоке "О нас"
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем элементы слайдера
+    const aboutSlides = document.querySelectorAll('.about-slide');
+    const aboutIndicators = document.querySelectorAll('.about-indicator');
+    let aboutCurrentSlide = 0;
+    const aboutSlideInterval = 5000; // Интервал смены слайдов - 5 секунд
+
+    // Функция для переключения на следующий слайд
+    function nextAboutSlide() {
+        // Убираем активный класс с текущего слайда и индикатора
+        aboutSlides[aboutCurrentSlide].classList.remove('active');
+        aboutIndicators[aboutCurrentSlide].classList.remove('active');
+
+        // Переходим к следующему слайду
+        aboutCurrentSlide = (aboutCurrentSlide + 1) % aboutSlides.length;
+
+        // Добавляем активный класс новому слайду и индикатору
+        aboutSlides[aboutCurrentSlide].classList.add('active');
+        aboutIndicators[aboutCurrentSlide].classList.add('active');
+    }
+
+    // Запускаем автоматическую смену слайдов
+    let aboutSlideTimer = setInterval(nextAboutSlide, aboutSlideInterval);
+
+    // Обработчик клика по индикаторам
+    aboutIndicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            // Останавливаем текущий таймер
+            clearInterval(aboutSlideTimer);
+
+            // Убираем активный класс с текущего слайда и индикатора
+            aboutSlides[aboutCurrentSlide].classList.remove('active');
+            aboutIndicators[aboutCurrentSlide].classList.remove('active');
+
+            // Устанавливаем новый активный слайд
+            aboutCurrentSlide = index;
+
+            // Добавляем активный класс новому слайду и индикатору
+            aboutSlides[aboutCurrentSlide].classList.add('active');
+            aboutIndicators[aboutCurrentSlide].classList.add('active');
+
+            // Перезапускаем автоматическую смену
+            aboutSlideTimer = setInterval(nextAboutSlide, aboutSlideInterval);
+        });
+    });
+
+    // Останавливаем слайдер при наведении мыши
+    const aboutSlider = document.querySelector('.about-image-slider');
+    if (aboutSlider) {
+        aboutSlider.addEventListener('mouseenter', () => {
+            clearInterval(aboutSlideTimer);
+        });
+
+        aboutSlider.addEventListener('mouseleave', () => {
+            aboutSlideTimer = setInterval(nextAboutSlide, aboutSlideInterval);
+        });
+    }
+
+    // Опционально: свайп на мобильных устройствах
+    if (aboutSlider) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        aboutSlider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+
+        aboutSlider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        }, false);
+
+        function handleGesture() {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            // Если свайп был больше по вертикали, чем по горизонтали, то это скролл страницы
+            if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                return;
+            }
+
+            // Если горизонтальный свайп был достаточно длинным
+            if (Math.abs(deltaX) > 50) {
+                clearInterval(aboutSlideTimer);
+
+                // Убираем активный класс с текущего слайда и индикатора
+                aboutSlides[aboutCurrentSlide].classList.remove('active');
+                aboutIndicators[aboutCurrentSlide].classList.remove('active');
+
+                if (deltaX > 0) {
+                    // Свайп вправо - предыдущий слайд
+                    aboutCurrentSlide = (aboutCurrentSlide - 1 + aboutSlides.length) % aboutSlides.length;
+                } else {
+                    // Свайп влево - следующий слайд
+                    aboutCurrentSlide = (aboutCurrentSlide + 1) % aboutSlides.length;
+                }
+
+                // Добавляем активный класс новому слайду и индикатору
+                aboutSlides[aboutCurrentSlide].classList.add('active');
+                aboutIndicators[aboutCurrentSlide].classList.add('active');
+
+                // Перезапускаем таймер
+                aboutSlideTimer = setInterval(nextAboutSlide, aboutSlideInterval);
+            }
+        }
+    }
+});
+    </script>
     <script>
         // Back to top button
 const backToTopButton = document.getElementById('backToTop');
@@ -609,5 +689,57 @@ window.addEventListener('resize', () => {
     }
 });
     </script>
+<div class="modal-container" id="altegioModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Запись через Altegio</h3>
+            <button class="modal-close" aria-label="Закрыть">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="booking-frame-container">
+                <div class="booking-loader">
+                    <div class="spinner"></div>
+                    <p>Загрузка виджета записи...</p>
+                </div>
+                <iframe
+                    src="https://n821475.alteg.io/company/770494/personal/menu?o="
+                    frameborder="0"
+                    class="booking-frame"
+                    id="altegioFrame"
+                    allowfullscreen
+                    onload="hideLoader(this)">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для Sredi Me -->
+<div class="modal-container" id="srediMeModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Запись через Sredi Me</h3>
+            <button class="modal-close" aria-label="Закрыть">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="booking-frame-container">
+                <div class="booking-loader">
+                    <div class="spinner"></div>
+                    <p>Загрузка виджета записи...</p>
+                </div>
+                <iframe
+                    src="https://www.sredime.rs/widget/skinography"
+                    frameborder="0"
+                    class="booking-frame"
+                    id="srediMeFrame"
+                    allowfullscreen
+                    onload="hideLoader(this)">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
