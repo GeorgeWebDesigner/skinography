@@ -1,545 +1,797 @@
-// Language translations
+// Объект с переводами для всех текстов на сайте
 const translations = {
-    ru: {
-        nav: {
-            services: 'Услуги',
-            advantages: 'Преимущества',
-            portfolio: 'Портфолио',
-            booking: 'Запись',
-            contacts: 'Контакты'
-        },
-        hero: {
-            tagline: 'BEST TREATMENT',
-            bookOnline: 'Записаться онлайн',
-            ourServices: 'Наши услуги'
-        },
-        about: {
-            title: 'НАША ФИЛОСОФИЯ',
-            text1: 'Добро пожаловать в Skinography - ваш премиальный салон красоты в самом сердце Белграда. Мы специализируемся на инновационных процедурах для кожи, используя только самые современные технологии и продукты высочайшего качества.',
-            text2: 'Наша миссия - помочь каждому клиенту раскрыть естественную красоту и достичь идеального состояния кожи. Мы верим, что красота начинается с здоровой кожи, и именно поэтому мы подходим к каждому клиенту индивидуально, создавая персонализированные программы ухода.'
-        },
-        services: {
-            title: 'НАШИ УСЛУГИ',
-            laser: {
-                title: 'Лазерная эпиляция',
-                desc: 'Современная технология удаления волос с долговременным эффектом. Безопасно, безболезненно и эффективно'
-            },
-            manicure: {
-                title: 'Ногтевой сервис',
-                desc: 'Классический, аппаратный, европейский маникюр. Долговременные покрытия и дизайн любой сложности'
-            },
-            cosmetology: {
-                title: 'Косметология',
-                desc: 'Профессиональный уход за кожей лица: чистки, пилинги, массажи, маски и аппаратные процедуры'
-            },
-            browsLashes: {
-                title: 'Брови и ресницы',
-                desc: 'Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности'
-            }
-        },
-        packages: {
-        title: 'ПАКЕТНЫЕ УСЛУГИ',
-        subtitle: 'Выгодные комплексы процедур для разных потребностей',
-        sun: {
-            title: 'Солнце'
-        },
-        tennis: {
-            title: 'Теннисистка'
-        },
-        business: {
-            title: 'Бизнес-вуман'
-        }
+    // Навигация
+    "nav_services": {
+        "ru": "Услуги",
+        "sr": "Usluge",
+        "en": "Services"
     },
-    prices: {
-        title: 'СТОИМОСТЬ УСЛУГ',
-        subtitle: 'Ознакомьтесь с полным прейскурантом наших услуг'
+    "nav_packages": {
+        "ru": "Пакеты",
+        "sr": "Paketi",
+        "en": "Packages"
     },
-        advantages: {
-            title: 'НАШИ ПРЕИМУЩЕСТВА',
-            experts: {
-                title: 'Искусство заботы',
-                desc: 'Мы превращаем каждый визит в особенное событие, предвосхищая ваши пожелания'
-            },
-            equipment: {
-                title: 'Современное оборудование',
-                desc: 'Используем только новейшие технологии и аппараты последнего поколения'
-            },
-            cosmetics: {
-                title: 'Премиум косметика',
-                desc: 'Работаем с лучшими мировыми брендами профессиональной косметики'
-            },
-            approach: {
-                title: 'Индивидуальный подход',
-                desc: 'Персонализированные программы ухода для каждого клиента'
-            }
-        },
-        portfolio: {
-            title: 'ПОРТФОЛИО',
-            subtitle: 'Результаты нашей работы говорят сами за себя',
-            items: {
-                manicure: 'Маникюр',
-                pedicure: 'Педикюр',
-                brows: 'Брови',
-                lashes: 'Ресницы',
-                cosmetology: 'Косметология',
-                epilation: 'Эпиляция'
-            }
-        },
-        booking: {
-            title: 'ЗАПИШИТЕСЬ ОНЛАЙН',
-            subtitle: 'Выберите удобную для вас платформу для записи',
-            altegio: {
-                title: 'Altegio',
-                desc: 'Международная система онлайн-записи с удобным интерфейсом',
-                button: 'Записаться через Altegio'
-            },
-            sredime: {
-                title: 'Sredi Me',
-                desc: 'Популярная сербская платформа для записи в салоны красоты',
-                button: 'Записаться через Sredi Me'
-            }
-        },
-        contact: {
-            title: 'КОНТАКТЫ',
-            getInTouch: 'Свяжитесь с нами',
-            findUs: 'Как нас найти',
-            address: ['Белград, Сербия', 'Dunavska 2j'],
-            hours: 'Пн-Вс: 11:00 - 19:00',
-            navigate: 'Проложить маршрут'
-        },
-        footer: {
-            rights: 'Все права защищены.',
-            tagline: 'Best Treatment in Belgrade'
-        }
+    "nav_prices": {
+        "ru": "Стоимость",
+        "sr": "Cene",
+        "en": "Prices"
     },
-    sr: {
-        nav: {
-            services: 'Usluge',
-            advantages: 'Prednosti',
-            portfolio: 'Portfolio',
-            booking: 'Zakazivanje',
-            contacts: 'Kontakt'
-        },
-        hero: {
-            tagline: 'BEST TREATMENT',
-            bookOnline: 'Zakažite online',
-            ourServices: 'Naše usluge'
-        },
-        about: {
-            title: 'NASA FILOZOFIJA',
-            text1: 'Dobrodošli u Skinography - vaš premium salon lepote u samom srcu Beograda. Specijalizovani smo za inovativne tretmane kože, koristeći samo najsavremenije tehnologije i proizvode najvišeg kvaliteta.',
-            text2: 'Naša misija je da pomognemo svakom klijentu da otkrije prirodnu lepotu i postigne idealno stanje kože. Verujemo da lepota počinje sa zdravom kožom, i zato pristupamo svakom klijentu individualno, kreirajući personalizovane programe nege.'
-        },
-        services: {
-            title: 'NASE USLUGE',
-            laser: {
-                title: 'Laserska epilacija',
-                desc: 'Savremena tehnologija uklanjanja dlaka sa dugotrajnim efektom. Bezbedno, bezbolno i efikasno'
-            },
-            manicure: {
-                title: 'Manikir',
-                desc: 'Klasični, aparatni, evropski manikir. Trajni lakovi i dizajn bilo koje složenosti'
-            },
-            pedicure: {
-                title: 'Pedikir',
-                desc: 'Klasični, aparatni, medicinski pedikir. Nega stopala i rešavanje problema sa urasim noktima'
-            },
-            cosmetology: {
-                title: 'Kozmetologija',
-                desc: 'Profesionalna nega kože lica: čišćenja, pilinzi, masaže, maske i aparatni tretmani'
-            },
-            browsLashes: {
-                title: 'Obrve i trepavice',
-                desc: 'Farbanje, laminiranje, nadogradnja trepavica. Korekcija i oblikovanje obrva bilo koje složenosti'
-            }
-        },
-        packages: {
-        title: 'PAKET USLUGE',
-        subtitle: 'Povoljni kompleksi procedura za različite potrebe',
-        sun: {
-            title: 'Sunce'
-        },
-        tennis: {
-            title: 'Teniserka'
-        },
-        business: {
-            title: 'Poslovna žena'
-        }
+    "nav_advantages": {
+        "ru": "Преимущества",
+        "sr": "Prednosti",
+        "en": "Advantages"
     },
-    prices: {
-        title: 'CENOVNIK',
-        subtitle: 'Pogledajte kompletan cenovnik naših usluga'
+    "nav_portfolio": {
+        "ru": "Портфолио",
+        "sr": "Portfolio",
+        "en": "Portfolio"
     },
-        advantages: {
-            title: 'NASE PREDNOSTI',
-            experts: {
-                title: 'Iskusni stručnjaci',
-                desc: 'Tim sertifikovanih profesionalaca sa dugogodišnjim iskustvom'
-            },
-            equipment: {
-                title: 'Savremena oprema',
-                desc: 'Koristimo samo najnovije tehnologije i aparate poslednje generacije'
-            },
-            cosmetics: {
-                title: 'Premium kozmetika',
-                desc: 'Radimo sa najboljim svetskim brendovima profesionalne kozmetike'
-            },
-            approach: {
-                title: 'Individualni pristup',
-                desc: 'Personalizovani programi nege za svakog klijenta'
-            }
-        },
-        portfolio: {
-            title: 'PORTFOLIO',
-            subtitle: 'Rezultati našeg rada govore sami za sebe',
-            items: {
-                manicure: 'Manikir',
-                pedicure: 'Pedikir',
-                brows: 'Obrve',
-                lashes: 'Trepavice',
-                cosmetology: 'Kozmetologija',
-                epilation: 'Epilacija'
-            }
-        },
-        booking: {
-            title: 'ZAKAZITE ONLINE',
-            subtitle: 'Izaberite platformu koja vam odgovara za zakazivanje',
-            altegio: {
-                title: 'Altegio',
-                desc: 'Međunarodni sistem online zakazivanja sa praktičnim interfejsom',
-                button: 'Zakažite preko Altegio'
-            },
-            sredime: {
-                title: 'Sredi Me',
-                desc: 'Popularna srpska platforma za zakazivanje u salonima lepote',
-                button: 'Zakažite preko Sredi Me'
-            }
-        },
-        contact: {
-            title: 'KONTAKT',
-            getInTouch: 'Kontaktirajte nas',
-            findUs: 'Kako do nas',
-            address: ['Beograd, Srbija', 'Dunavska 2j'],
-            hours: 'Pon-Ned: 11:00 - 19:00',
-            navigate: 'Pokrenite navigaciju'
-        },
-        footer: {
-            rights: 'Sva prava zadržana.',
-            tagline: 'Best Treatment in Belgrade'
-        }
+    "nav_booking": {
+        "ru": "Запись",
+        "sr": "Zakazivanje",
+        "en": "Booking"
     },
-    en: {
-        nav: {
-            services: 'Services',
-            advantages: 'Advantages',
-            portfolio: 'Portfolio',
-            booking: 'Booking',
-            contacts: 'Contact'
-        },
-        hero: {
-            tagline: 'BEST TREATMENT',
-            bookOnline: 'Book Online',
-            ourServices: 'Our Services'
-        },
-        about: {
-            title: 'OUR PHILOSOPHY',
-            text1: 'Welcome to Skinography - your premium beauty salon in the heart of Belgrade. We specialize in innovative skin procedures, using only the most advanced technologies and highest quality products.',
-            text2: 'Our mission is to help every client reveal their natural beauty and achieve perfect skin condition. We believe that beauty begins with healthy skin, which is why we approach each client individually, creating personalized care programs.'
-        },
-        services: {
-            title: 'OUR SERVICES',
-            laser: {
-                title: 'Laser Hair Removal',
-                desc: 'Modern technology for hair removal with long-lasting effects. Safe, painless and effective'
-            },
-            manicure: {
-                title: 'Manicure',
-                desc: 'Classic, hardware, European manicure. Long-lasting coatings and designs of any complexity'
-            },
-            pedicure: {
-                title: 'Pedicure',
-                desc: 'Classic, hardware, medical pedicure. Foot care and ingrown nail treatment'
-            },
-            cosmetology: {
-                title: 'Cosmetology',
-                desc: 'Professional facial skin care: cleansing, peeling, massages, masks and hardware procedures'
-            },
-            browsLashes: {
-                title: 'Brows & Lashes',
-                desc: 'Tinting, lamination, lash extensions. Eyebrow correction and shaping of any complexity'
-            }
-        },
-        packages: {
-        title: 'PACKAGE SERVICES',
-        subtitle: 'Beneficial procedure packages for different needs',
-        sun: {
-            title: 'Sun'
-        },
-        tennis: {
-            title: 'Tennis'
-        },
-        business: {
-            title: 'Business Woman'
-        }
+    "nav_contact": {
+        "ru": "Контакты",
+        "sr": "Kontakti",
+        "en": "Contact"
     },
-    prices: {
-        title: 'PRICE LIST',
-        subtitle: 'Check our complete service price list'
+
+    // Hero Section
+    "hero_tagline": {
+        "ru": "BEST TREATMENT",
+        "sr": "BEST TREATMENT",
+        "en": "BEST TREATMENT"
     },
-        advantages: {
-            title: 'OUR ADVANTAGES',
-            experts: {
-                title: 'Experienced Specialists',
-                desc: 'Team of certified professionals with years of experience'
-            },
-            equipment: {
-                title: 'Modern Equipment',
-                desc: 'We use only the latest technologies and state-of-the-art devices'
-            },
-            cosmetics: {
-                title: 'Premium Cosmetics',
-                desc: 'We work with the best global brands of professional cosmetics'
-            },
-            approach: {
-                title: 'Individual Approach',
-                desc: 'Personalized care programs for each client'
-            }
-        },
-        portfolio: {
-            title: 'PORTFOLIO',
-            subtitle: 'Our work results speak for themselves',
-            items: {
-                manicure: 'Manicure',
-                pedicure: 'Pedicure',
-                brows: 'Brows',
-                lashes: 'Lashes',
-                cosmetology: 'Cosmetology',
-                epilation: 'Hair Removal'
-            }
-        },
-        booking: {
-            title: 'BOOK ONLINE',
-            subtitle: 'Choose a convenient booking platform',
-            altegio: {
-                title: 'Altegio',
-                desc: 'International online booking system with user-friendly interface',
-                button: 'Book via Altegio'
-            },
-            sredime: {
-                title: 'Sredi Me',
-                desc: 'Popular Serbian platform for beauty salon bookings',
-                button: 'Book via Sredi Me'
-            }
-        },
-        contact: {
-            title: 'CONTACT',
-            getInTouch: 'Get in Touch',
-            findUs: 'Find Us',
-            address: ['Belgrade, Serbia', 'Dunavska 2j'],
-            hours: 'Mon-Sun: 11:00 AM - 7:00 PM',
-            navigate: 'Get Directions'
-        },
-        footer: {
-            rights: 'All rights reserved.',
-            tagline: 'Best Treatment in Belgrade'
-        }
+    "hero_book_online": {
+        "ru": "Записаться онлайн",
+        "sr": "Zakazati online",
+        "en": "Book online"
+    },
+    "hero_our_services": {
+        "ru": "Наши услуги",
+        "sr": "Naše usluge",
+        "en": "Our services"
+    },
+
+    // О нас
+    "about_title": {
+        "ru": "НАША ФИЛОСОФИЯ",
+        "sr": "NAŠA FILOZOFIJA",
+        "en": "OUR PHILOSOPHY"
+    },
+    "about_subtitle": {
+        "ru": "Наш путь к натуральной красоте: почему мы выбрали безинъекционные методы?",
+        "sr": "Naš put ka prirodnoj lepoti: zašto smo odabrali metode bez injekcija?",
+        "en": "Our path to natural beauty: why we chose non-injection methods?"
+    },
+    "about_p1": {
+        "ru": "Красота — это не про стандарты, а про гармонию с собой. Мы в Skinography верим, что уход за собой должен быть бережным.",
+        "sr": "Lepota nije o standardima, već o harmoniji sa sobom. Mi u Skinography verujemo da nega treba da bude nežna.",
+        "en": "Beauty is not about standards, but about harmony with yourself. At Skinography, we believe that self-care should be gentle."
+    },
+    "about_highlight": {
+        "ru": "Поэтому в нашей работе мы отказались от инъекций и выбрали методы, которые помогают коже естественно обновляться, без боли и рисков.",
+        "sr": "Zato smo u našem radu odbacili injekcije i izabrali metode koje pomažu koži da se prirodno obnovi, bez bola i rizika.",
+        "en": "That's why in our work we abandoned injections and chose methods that help the skin renew naturally, without pain and risks."
+    },
+    "about_p2": {
+        "ru": "Мы не гонимся за быстрыми результатами, а создаем красоту, которая останется с вами надолго.",
+        "sr": "Ne jurimo za brzim rezultatima, već stvaramo lepotu koja će ostati sa vama dugo vremena.",
+        "en": "We don't chase quick results, but create beauty that will stay with you for a long time."
+    },
+    "about_point1": {
+        "ru": "Восстанавливаем, а не ломаем.",
+        "sr": "Obnavljamo, ne rušimo.",
+        "en": "We restore, not break."
+    },
+    "about_point2": {
+        "ru": "Подчеркиваем, а не меняем.",
+        "sr": "Naglašavamo, ne menjamo.",
+        "en": "We emphasize, not change."
+    },
+    "about_point3": {
+        "ru": "Активизируем внутренние ресурсы кожи, а не заставляем ее подстраиваться под искусственные вмешательства.",
+        "sr": "Aktiviramo unutrašnje resurse kože, ne teramo je da se prilagođava veštačkim intervencijama.",
+        "en": "We activate the skin's internal resources rather than forcing it to adapt to artificial interventions."
+    },
+    "about_p3": {
+        "ru": "Здоровье и естественность - наш приоритет.",
+        "sr": "Zdravlje i prirodnost su naš prioritet.",
+        "en": "Health and naturalness are our priority."
+    },
+    "about_p4": {
+        "ru": "Мы заботимся не только о вашей внешности, но и о вашем комфорте, помогая сохранить молодость без агрессивных процедур.",
+        "sr": "Brinemo ne samo o vašem izgledu, već i o vašoj udobnosti, pomažući vam da sačuvate mladost bez agresivnih procedura.",
+        "en": "We care not only about your appearance, but also about your comfort, helping you maintain youth without aggressive procedures."
+    },
+    "about_conclusion": {
+        "ru": "Ждем вас в нашем салоне.<br>Естественная красота - это просто.",
+        "sr": "Čekamo vas u našem salonu.<br>Prirodna lepota je jednostavna.",
+        "en": "We await you in our salon.<br>Natural beauty is simple."
+    },
+
+    // Услуги
+    "services_title": {
+        "ru": "НАШИ УСЛУГИ",
+        "sr": "NAŠE USLUGE",
+        "en": "OUR SERVICES"
+    },
+    "service_laser": {
+        "ru": "Лазерная эпиляция",
+        "sr": "Laserska epilacija",
+        "en": "Laser hair removal"
+    },
+    "service_laser_desc": {
+        "ru": "Современная технология удаления волос с долговременным эффектом. Безопасно, безболезненно и эффективно",
+        "sr": "Savremena tehnologija uklanjanja dlaka sa dugotrajnim efektom. Bezbedno, bezbolno i efikasno",
+        "en": "Modern hair removal technology with long-lasting effect. Safe, painless and effective"
+    },
+    "service_nails": {
+        "ru": "Ногтевой сервис",
+        "sr": "Manikir i pedikir",
+        "en": "Nail services"
+    },
+    "service_nails_desc": {
+        "ru": "Классический, аппаратный, европейский маникюр. Долговременные покрытия и дизайн любой сложности",
+        "sr": "Klasični, aparatni, evropski manikir. Dugotrajna gel lakovi i dizajn bilo koje složenosti",
+        "en": "Classic, hardware, European manicure. Long-lasting coatings and designs of any complexity"
+    },
+    "service_cosmetology": {
+        "ru": "Косметология",
+        "sr": "Kozmetologija",
+        "en": "Cosmetology"
+    },
+    "service_cosmetology_desc": {
+        "ru": "Профессиональный уход за кожей лица: чистки, пилинги, массажи, маски и аппаратные процедуры",
+        "sr": "Profesionalna nega kože lica: čišćenje, pilinzi, masaže, maske i aparatne procedure",
+        "en": "Professional facial skin care: cleansing, peels, massages, masks and hardware procedures"
+    },
+    "service_eyebrows": {
+        "ru": "Брови и ресницы",
+        "sr": "Obrve i trepavice",
+        "en": "Eyebrows and eyelashes"
+    },
+    "service_eyebrows_desc": {
+        "ru": "Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности",
+        "sr": "Bojenje, laminiranje, nadogradnja trepavica. Korekcija i oblikovanje obrva bilo koje složenosti",
+        "en": "Coloring, lamination, eyelash extensions. Correction and styling of eyebrows of any complexity"
+    },
+
+    // Пакетные услуги
+    "packages_title": {
+        "ru": "ПАКЕТНЫЕ УСЛУГИ",
+        "sr": "PAKET USLUGE",
+        "en": "PACKAGE SERVICES"
+    },
+    "packages_subtitle": {
+        "ru": "Выгодные комплексы процедур для разных потребностей",
+        "sr": "Povoljni kompleksi procedura za različite potrebe",
+        "en": "Beneficial procedure packages for different needs"
+    },
+    "package_sun": {
+        "ru": "Солнце",
+        "sr": "Sunce",
+        "en": "Sun"
+    },
+    "package_tennis": {
+        "ru": "Теннисистка",
+        "sr": "Teniserka",
+        "en": "Tennis Player"
+    },
+    "package_business": {
+        "ru": "Бизнес-вуман",
+        "sr": "Poslovna žena",
+        "en": "Business Woman"
+    },
+    "package_service1_sun": {
+        "ru": "Маникюр гигиенический",
+        "sr": "Manikir higijenski",
+        "en": "Hygienic manicure"
+    },
+    "package_service2_sun": {
+        "ru": "Окрашивание бровей",
+        "sr": "Bojenje obrva",
+        "en": "Eyebrow coloring"
+    },
+    "package_service3_sun": {
+        "ru": "Педикюр гигиенический",
+        "sr": "Pedikir higijenski",
+        "en": "Hygienic pedicure"
+    },
+    "package_service1_tennis": {
+        "ru": "Маникюр с покрытием гель-лак",
+        "sr": "Manikir sa gel lakom",
+        "en": "Manicure with gel polish"
+    },
+    "package_service2_tennis": {
+        "ru": "Педикюр гигиенический",
+        "sr": "Pedikir higijenski",
+        "en": "Hygienic pedicure"
+    },
+    "package_service3_tennis": {
+        "ru": "Ламинирование бровей",
+        "sr": "Laminiranje obrva",
+        "en": "Eyebrow lamination"
+    },
+    "package_service4_tennis": {
+        "ru": "Лазерная эпиляция подмышек",
+        "sr": "Laserska epilacija pazuha",
+        "en": "Laser hair removal of armpits"
+    },
+    "package_service1_business": {
+        "ru": "Маникюр с покрытием гель-лак",
+        "sr": "Manikir sa gel lakom",
+        "en": "Manicure with gel polish"
+    },
+    "package_service2_business": {
+        "ru": "Педикюр с покрытием гель-лак",
+        "sr": "Pedikir sa gel lakom",
+        "en": "Pedicure with gel polish"
+    },
+    "package_service3_business": {
+        "ru": "Лазерная эпиляция \"Комплекс S\"",
+        "sr": "Laserska epilacija \"Komplet S\"",
+        "en": "Laser hair removal \"Complex S\""
+    },
+    "package_service4_business": {
+        "ru": "Ламинирование ресниц",
+        "sr": "Laminiranje trepavica",
+        "en": "Eyelash lamination"
+    },
+    "package_service5_business": {
+        "ru": "Окрашивание бровей",
+        "sr": "Bojenje obrva",
+        "en": "Eyebrow coloring"
+    },
+    "price_original": {
+        "ru": "RSD",
+        "sr": "RSD",
+        "en": "RSD"
+    },
+    "price_discount": {
+        "ru": "RSD",
+        "sr": "RSD",
+        "en": "RSD"
+    },
+    "btn_book": {
+        "ru": "Записаться",
+        "sr": "Zakazati",
+        "en": "Book Now"
+    },
+
+    // Стоимость услуг
+    "prices_title": {
+        "ru": "СТОИМОСТЬ УСЛУГ",
+        "sr": "CENE USLUGA",
+        "en": "SERVICE PRICES"
+    },
+    "prices_subtitle": {
+        "ru": "Ознакомьтесь с полным прейскурантом наших услуг",
+        "sr": "Pogledajte kompletan cenovnik naših usluga",
+        "en": "Check out the full price list of our services"
+    },
+
+    // Преимущества
+    "advantages_title": {
+        "ru": "НАШИ ПРЕИМУЩЕСТВА",
+        "sr": "NAŠE PREDNOSTI",
+        "en": "OUR ADVANTAGES"
+    },
+    "advantage1_title": {
+        "ru": "Искусство заботы",
+        "sr": "Umetnost brige",
+        "en": "Art of care"
+    },
+    "advantage1_desc": {
+        "ru": "Мы превращаем каждый визит в особенное событие, предвосхищая ваши пожелания",
+        "sr": "Pretvaramo svaku posetu u poseban događaj, predviđajući vaše želje",
+        "en": "We turn every visit into a special event, anticipating your wishes"
+    },
+    "advantage2_title": {
+        "ru": "Современное оборудование",
+        "sr": "Savremena oprema",
+        "en": "Modern equipment"
+    },
+    "advantage2_desc": {
+        "ru": "Используем только новейшие технологии и аппараты последнего поколения",
+        "sr": "Koristimo samo najnovije tehnologije i uređaje poslednje generacije",
+        "en": "We use only the latest technologies and equipment of the latest generation"
+    },
+    "advantage3_title": {
+        "ru": "Премиум косметика",
+        "sr": "Premium kozmetika",
+        "en": "Premium cosmetics"
+    },
+    "advantage3_desc": {
+        "ru": "Работаем с лучшими мировыми брендами профессиональной косметики",
+        "sr": "Radimo sa najboljim svetskim brendovima profesionalne kozmetike",
+        "en": "We work with the best global brands of professional cosmetics"
+    },
+    "advantage4_title": {
+        "ru": "Индивидуальный подход",
+        "sr": "Individualni pristup",
+        "en": "Individual approach"
+    },
+    "advantage4_desc": {
+        "ru": "Персонализированные программы ухода для каждого клиента",
+        "sr": "Personalizovani programi nege za svakog klijenta",
+        "en": "Personalized care programs for each client"
+    },
+
+    // Портфолио
+    "portfolio_title": {
+        "ru": "ПОРТФОЛИО",
+        "sr": "PORTFOLIO",
+        "en": "PORTFOLIO"
+    },
+    "portfolio_subtitle": {
+        "ru": "Результаты нашей работы говорят сами за себя",
+        "sr": "Rezultati našeg rada govore sami za sebe",
+        "en": "The results of our work speak for themselves"
+    },
+    "portfolio_manicure": {
+        "ru": "Маникюр",
+        "sr": "Manikir",
+        "en": "Manicure"
+    },
+    "portfolio_manicure_desc": {
+        "ru": "Французский маникюр",
+        "sr": "Francuski manikir",
+        "en": "French manicure"
+    },
+    "portfolio_pedicure": {
+        "ru": "Педикюр",
+        "sr": "Pedikir",
+        "en": "Pedicure"
+    },
+    "portfolio_pedicure_desc": {
+        "ru": "Классический педикюр",
+        "sr": "Klasični pedikir",
+        "en": "Classic pedicure"
+    },
+    "portfolio_eyebrows": {
+        "ru": "Брови",
+        "sr": "Obrve",
+        "en": "Eyebrows"
+    },
+    "portfolio_eyebrows_desc": {
+        "ru": "Ламинирование бровей",
+        "sr": "Laminiranje obrva",
+        "en": "Eyebrow lamination"
+    },
+    "portfolio_lashes": {
+        "ru": "Ресницы",
+        "sr": "Trepavice",
+        "en": "Eyelashes"
+    },
+    "portfolio_lashes_desc": {
+        "ru": "Наращивание ресниц",
+        "sr": "Nadogradnja trepavica",
+        "en": "Eyelash extensions"
+    },
+    "portfolio_cosmetology": {
+        "ru": "Косметология",
+        "sr": "Kozmetologija",
+        "en": "Cosmetology"
+    },
+    "portfolio_cosmetology_desc": {
+        "ru": "Чистка лица",
+        "sr": "Čišćenje lica",
+        "en": "Facial cleansing"
+    },
+    "portfolio_epilation": {
+        "ru": "Эпиляция",
+        "sr": "Epilacija",
+        "en": "Hair removal"
+    },
+    "portfolio_epilation_desc": {
+        "ru": "Лазерная эпиляция",
+        "sr": "Laserska epilacija",
+        "en": "Laser hair removal"
+    },
+
+    // Запись
+    "booking_title": {
+        "ru": "ЗАПИШИТЕСЬ ОНЛАЙН",
+        "sr": "ZAKAŽITE ONLINE",
+        "en": "BOOK ONLINE"
+    },
+    "booking_subtitle": {
+        "ru": "Выберите удобную для вас платформу для записи",
+        "sr": "Izaberite platformu koja vam odgovara za zakazivanje",
+        "en": "Choose a booking platform that is convenient for you"
+    },
+    "booking_altegio_title": {
+        "ru": "Altegio",
+        "sr": "Altegio",
+        "en": "Altegio"
+    },
+    "booking_altegio_desc": {
+        "ru": "Международная система онлайн-записи с удобным интерфейсом",
+        "sr": "Međunarodni sistem za online zakazivanje sa jednostavnim interfejsom",
+        "en": "International online booking system with a user-friendly interface"
+    },
+    "booking_sredime_title": {
+        "ru": "Sredi Me",
+        "sr": "Sredi Me",
+        "en": "Sredi Me"
+    },
+    "booking_sredime_desc": {
+        "ru": "Популярная сербская платформа для записи в салоны красоты",
+        "sr": "Popularna srpska platforma za zakazivanje u salonima lepote",
+        "en": "Popular Serbian platform for booking beauty salons"
+    },
+    "booking_altegio_btn": {
+        "ru": "Записаться через Altegio",
+        "sr": "Zakazati preko Altegio",
+        "en": "Book via Altegio"
+    },
+    "booking_sredime_btn": {
+        "ru": "Записаться через Sredi Me",
+        "sr": "Zakazati preko Sredi Me",
+        "en": "Book via Sredi Me"
+    },
+
+    // Контакты
+    "contact_title": {
+        "ru": "КОНТАКТЫ",
+        "sr": "KONTAKTI",
+        "en": "CONTACTS"
+    },
+    "contact_subtitle": {
+        "ru": "Свяжитесь с нами",
+        "sr": "Kontaktirajte nas",
+        "en": "Get in touch"
+    },
+    "contact_address1": {
+        "ru": "Белград, Сербия",
+        "sr": "Beograd, Srbija",
+        "en": "Belgrade, Serbia"
+    },
+    "contact_address2": {
+        "ru": "Dunavka 2j",
+        "sr": "Dunavka 2j",
+        "en": "Dunavka 2j"
+    },
+    "contact_hours": {
+        "ru": "Пн-Вс: 11:00 - 19:00",
+        "sr": "Pon-Ned: 11:00 - 19:00",
+        "en": "Mon-Sun: 11:00 - 19:00"
+    },
+    "contact_map_title": {
+        "ru": "Как нас найти",
+        "sr": "Kako nas naći",
+        "en": "How to find us"
+    },
+    "contact_map_address": {
+        "ru": "Dunavska 2J, Beograd",
+        "sr": "Dunavska 2J, Beograd",
+        "en": "Dunavska 2J, Belgrade"
+    },
+    "contact_map_navigate": {
+        "ru": "Проложить маршрут",
+        "sr": "Pronađi put",
+        "en": "Get directions"
+    },
+
+    // Модальные окна
+    "modal_altegio_title": {
+        "ru": "Запись через Altegio",
+        "sr": "Zakazivanje preko Altegio",
+        "en": "Booking via Altegio"
+    },
+    "modal_sredime_title": {
+        "ru": "Запись через Sredi Me",
+        "sr": "Zakazivanje preko Sredi Me",
+        "en": "Booking via Sredi Me"
+    },
+    "modal_loading": {
+        "ru": "Загрузка виджета записи...",
+        "sr": "Učitavanje widgeta za zakazivanje...",
+        "en": "Loading booking widget..."
+    },
+
+    // Футер
+    "footer_copyright": {
+        "ru": "© 2024 Skinography. Все права защищены.",
+        "sr": "© 2024 Skinography. Sva prava zadržana.",
+        "en": "© 2024 Skinography. All rights reserved."
+    },
+    "footer_tagline": {
+        "ru": "Best Treatment in Belgrade",
+        "sr": "Best Treatment in Belgrade",
+        "en": "Best Treatment in Belgrade"
+    },
+
+    // Слайдер цен - заголовки карточек
+    "price_card_brows": {
+        "ru": "Брови и ресницы",
+        "sr": "Obrve i trepavice",
+        "en": "Eyebrows and eyelashes"
+    },
+    "price_card_epilation_women": {
+        "ru": "Лазерная эпиляция для женщин",
+        "sr": "Laserska epilacija za žene",
+        "en": "Laser hair removal for women"
+    },
+    "price_card_manicure": {
+        "ru": "Маникюр и педикюр",
+        "sr": "Manikir i pedikir",
+        "en": "Manicure and pedicure"
+    },
+    "price_card_epilation_men": {
+        "ru": "Лазерная эпиляция для мужчин",
+        "sr": "Laserska epilacija za muškarce",
+        "en": "Laser hair removal for men"
+    },
+    "price_card_cosmetology": {
+        "ru": "Косметология",
+        "sr": "Kozmetologija",
+        "en": "Cosmetology"
     }
 };
 
-// Language switching functionality
-let currentLang = localStorage.getItem('preferred-language') || 'ru';
+// Текущий выбранный язык (по умолчанию - русский)
+let currentLanguage = "ru";
 
-// Эту функцию нужно добавить в languages.js
-
-// Обновленная функция для переключения языков
-// Обновленная функция для переключения языков
+// Функция для обновления текстов на странице при смене языка
 function updateLanguage(lang) {
-    currentLang = lang;
-    const t = translations[lang];
+    // Сохраняем выбранный язык
+    currentLanguage = lang;
 
-    // Обновляем меню (десктопное и мобильное)
-    updateAllMenus(lang);
+    // Сохраняем выбранный язык в localStorage
+    localStorage.setItem('selectedLanguage', lang);
 
-    // Update document language and title
-    document.documentElement.lang = lang;
-    const titles = {
-        ru: 'Skinography - Best Treatment | Салон красоты в Белграде',
-        sr: 'Skinography - Best Treatment | Salon lepote u Beogradu',
-        en: 'Skinography - Best Treatment | Beauty Salon in Belgrade'
-    };
-    document.title = titles[lang];
-
-    // Update hero section
-    const tagline = document.querySelector('.tagline');
-    if (tagline) tagline.textContent = t.hero.tagline;
-
-    const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
-    if (ctaButtons[0]) ctaButtons[0].textContent = t.hero.bookOnline;
-    if (ctaButtons[1]) ctaButtons[1].textContent = t.hero.ourServices;
-
-    // Update all section titles
-    const sectionTitles = {
-        '#about .section-title': t.about.title,
-        '#services .section-title': t.services.title,
-        '#packages .section-title': t.packages ? t.packages.title : 'ПАКЕТНЫЕ УСЛУГИ',
-        '#prices .section-title': t.prices ? t.prices.title : 'СТОИМОСТЬ УСЛУГ',
-        '#advantages .section-title': t.advantages.title,
-        '#portfolio .section-title': t.portfolio.title,
-        '#booking .section-title': t.booking.title,
-        '#contact .section-title': t.contact.title
-    };
-
-    Object.entries(sectionTitles).forEach(([selector, text]) => {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = text;
-    });
-
-    // Update subtitles
-    const sectionSubtitles = {
-        '#packages .section-subtitle': t.packages ? t.packages.subtitle : 'Выгодные комплексы процедур для разных потребностей',
-        '#prices .section-subtitle': t.prices ? t.prices.subtitle : 'Ознакомьтесь с полным прейскурантом наших услуг',
-        '#portfolio .section-subtitle': t.portfolio.subtitle
-    };
-
-    Object.entries(sectionSubtitles).forEach(([selector, text]) => {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = text;
-    });
-
-    // Update about section
-    const aboutSubtitle = document.querySelector('.about-subtitle');
-    if (aboutSubtitle && t.about.subtitle) {
-        aboutSubtitle.textContent = t.about.subtitle;
-    }
-
-    // Update package cards
-    const packageTitles = {
-        '#sun-package .package-title': t.packages ? t.packages.sun.title : 'Солнце',
-        '#tennis-package .package-title': t.packages ? t.packages.tennis.title : 'Теннисистка',
-        '#business-package .package-title': t.packages ? t.packages.business.title : 'Бизнес-вуман'
-    };
-
-    Object.entries(packageTitles).forEach(([selector, text]) => {
-        const element = document.querySelector(selector);
-        if (element) element.textContent = text;
-    });
-
-    // Update services
-    const serviceCards = document.querySelectorAll('.service-card');
-    const serviceKeys = ['laser', 'manicure', 'cosmetology', 'browsLashes'];
-    serviceCards.forEach((card, index) => {
-        if (serviceKeys[index] && t.services[serviceKeys[index]]) {
-            const title = card.querySelector('h3');
-            const desc = card.querySelector('p');
-            if (title) title.textContent = t.services[serviceKeys[index]].title;
-            if (desc) desc.textContent = t.services[serviceKeys[index]].desc;
+    // Обновляем все переводимые элементы на странице
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[key] && translations[key][lang]) {
+            if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                if (element.getAttribute("placeholder")) {
+                    element.setAttribute("placeholder", translations[key][lang]);
+                } else {
+                    element.value = translations[key][lang];
+                }
+            } else {
+                element.innerHTML = translations[key][lang];
+            }
         }
     });
 
-    // Update advantages
-    const advantageItems = document.querySelectorAll('.advantage-item');
-    const advantageKeys = ['experts', 'equipment', 'cosmetics', 'approach'];
-    advantageItems.forEach((item, index) => {
-        if (advantageKeys[index] && t.advantages[advantageKeys[index]]) {
-            const title = item.querySelector('h3');
-            const desc = item.querySelector('p');
-            if (title) title.textContent = t.advantages[advantageKeys[index]].title;
-            if (desc) desc.textContent = t.advantages[advantageKeys[index]].desc;
-        }
-    });
-
-    // Update portfolio
-    const portfolioItems = document.querySelectorAll('.portfolio-overlay');
-    const portfolioKeys = ['manicure', 'pedicure', 'brows', 'lashes', 'cosmetology', 'epilation'];
-    portfolioItems.forEach((item, index) => {
-        if (portfolioKeys[index] && t.portfolio.items[portfolioKeys[index]]) {
-            const title = item.querySelector('h4');
-            if (title) title.textContent = t.portfolio.items[portfolioKeys[index]];
-        }
-    });
-
-    // Update booking
-    const bookingSubtitle = document.querySelector('#booking > .container > p');
-    if (bookingSubtitle) bookingSubtitle.textContent = t.booking.subtitle;
-
-    const widgetCards = document.querySelectorAll('.widget-card');
-    if (widgetCards[0]) {
-        const title = widgetCards[0].querySelector('h3');
-        const desc = widgetCards[0].querySelector('p');
-        const btn = widgetCards[0].querySelector('.btn');
-        if (title) title.textContent = t.booking.altegio.title;
-        if (desc) desc.textContent = t.booking.altegio.desc;
-        if (btn) btn.textContent = t.booking.altegio.button;
-    }
-    if (widgetCards[1]) {
-        const title = widgetCards[1].querySelector('h3');
-        const desc = widgetCards[1].querySelector('p');
-        const btn = widgetCards[1].querySelector('.btn');
-        if (title) title.textContent = t.booking.sredime.title;
-        if (desc) desc.textContent = t.booking.sredime.desc;
-        if (btn) btn.textContent = t.booking.sredime.button;
-    }
-
-    // Update contact
-    const contactTitle1 = document.querySelector('.contact-info h3');
-    const contactTitle2 = document.querySelector('.map-container h3');
-    if (contactTitle1) contactTitle1.textContent = t.contact.getInTouch;
-    if (contactTitle2) contactTitle2.textContent = t.contact.findUs;
-
-    const addressInfo = document.querySelectorAll('.address-info p');
-    if (addressInfo[0]) addressInfo[0].textContent = t.contact.address[0];
-    if (addressInfo[1]) addressInfo[1].textContent = t.contact.address[1];
-
-    const hoursInfo = document.querySelector('.hours-info p');
-    if (hoursInfo) hoursInfo.textContent = t.contact.hours;
-
-    const navigateBtn = document.querySelector('.navigate-btn span');
-    if (navigateBtn) navigateBtn.textContent = t.contact.navigate;
-
-    // Update package buttons
-    document.querySelectorAll('.btn-package').forEach(btn => {
-        btn.textContent = t.booking ? t.booking.bookButton : 'Записаться';
-    });
-
-    // Update footer
-    const footerTexts = document.querySelectorAll('footer p');
-    if (footerTexts[0]) footerTexts[0].textContent = `© 2024 Skinography. ${t.footer.rights}`;
-    if (footerTexts[1]) footerTexts[1].textContent = t.footer.tagline;
-
-    // Save preference
-    localStorage.setItem('preferred-language', lang);
-}
-
-function updateAllMenus(lang) {
-    const t = translations[lang];
-
-    // Обновляем основную навигацию
-    const navItems = document.querySelectorAll('.nav-links a');
-    updateNavLinks(navItems, t.nav);
-
-    // Обновляем мобильную навигацию
-    const mobileNavItems = document.querySelectorAll('.mobile-nav-links a');
-    updateNavLinks(mobileNavItems, t.nav);
-}
-
-function updateNavLinks(links, translations) {
-    links.forEach(link => {
-        const section = link.getAttribute('data-section');
-        if (section && translations[section]) {
-            link.textContent = translations[section];
-        }
-    });
-}
-
-// Initialize language buttons
-document.addEventListener('DOMContentLoaded', () => {
-    // Language button click handlers
+    // Обновляем активный класс для кнопок языка
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            updateLanguage(btn.dataset.lang);
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-lang') === lang) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// Функция для добавления атрибутов data-translate ко всем элементам
+function initializeTranslations() {
+    // Навигация
+    const navItems = {
+        "nav_services": document.querySelectorAll('.nav-links li:nth-child(1) a, .mobile-nav-links li:nth-child(1) a'),
+        "nav_packages": document.querySelectorAll('.nav-links li:nth-child(2) a, .mobile-nav-links li:nth-child(2) a'),
+        "nav_prices": document.querySelectorAll('.nav-links li:nth-child(3) a, .mobile-nav-links li:nth-child(3) a'),
+        "nav_advantages": document.querySelectorAll('.nav-links li:nth-child(4) a, .mobile-nav-links li:nth-child(4) a'),
+        "nav_portfolio": document.querySelectorAll('.nav-links li:nth-child(5) a, .mobile-nav-links li:nth-child(5) a'),
+        "nav_booking": document.querySelectorAll('.nav-links li:nth-child(6) a, .mobile-nav-links li:nth-child(6) a'),
+        "nav_contact": document.querySelectorAll('.nav-links li:nth-child(7) a, .mobile-nav-links li:nth-child(7) a')
+    };
+
+    // Устанавливаем атрибуты для навигации
+    for (const [key, elements] of Object.entries(navItems)) {
+        elements.forEach(element => {
+            element.setAttribute('data-translate', key);
+        });
+    }
+
+    // Hero секция
+    document.querySelector('.tagline').setAttribute('data-translate', 'hero_tagline');
+    document.querySelector('.btn-primary').setAttribute('data-translate', 'hero_book_online');
+    document.querySelector('.btn-secondary').setAttribute('data-translate', 'hero_our_services');
+
+    // О нас
+    document.querySelector('#about .section-title').setAttribute('data-translate', 'about_title');
+    document.querySelector('.about-subtitle').setAttribute('data-translate', 'about_subtitle');
+    document.querySelector('.about-text p:nth-child(2)').setAttribute('data-translate', 'about_p1');
+    document.querySelector('.about-text p:nth-child(2) .highlight').setAttribute('data-translate', 'about_highlight');
+    document.querySelector('.about-text p:nth-child(3)').setAttribute('data-translate', 'about_p2');
+    document.querySelector('.philosophy-points p:nth-child(1)').innerHTML = '<span class="accent-point">✧</span> <span data-translate="about_point1">Восстанавливаем, а не ломаем.</span>';
+    document.querySelector('.philosophy-points p:nth-child(2)').innerHTML = '<span class="accent-point">✧</span> <span data-translate="about_point2">Подчеркиваем, а не меняем.</span>';
+    document.querySelector('.philosophy-points p:nth-child(3)').innerHTML = '<span class="accent-point">✧</span> <span data-translate="about_point3">Активизируем внутренние ресурсы кожи, а не заставляем ее подстраиваться под искусственные вмешательства.</span>';
+    document.querySelector('.about-text p:nth-of-type(4)').setAttribute('data-translate', 'about_p3');
+    document.querySelector('.about-text p:nth-of-type(5)').setAttribute('data-translate', 'about_p4');
+    document.querySelector('.about-conclusion').setAttribute('data-translate', 'about_conclusion');
+
+    // Услуги
+    document.querySelector('#services .section-title').setAttribute('data-translate', 'services_title');
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards[0].querySelector('h3').setAttribute('data-translate', 'service_laser');
+    serviceCards[0].querySelector('p').setAttribute('data-translate', 'service_laser_desc');
+    serviceCards[1].querySelector('h3').setAttribute('data-translate', 'service_nails');
+    serviceCards[1].querySelector('p').setAttribute('data-translate', 'service_nails_desc');
+    serviceCards[2].querySelector('h3').setAttribute('data-translate', 'service_cosmetology');
+    serviceCards[2].querySelector('p').setAttribute('data-translate', 'service_cosmetology_desc');
+    serviceCards[3].querySelector('h3').setAttribute('data-translate', 'service_eyebrows');
+    serviceCards[3].querySelector('p').setAttribute('data-translate', 'service_eyebrows_desc');
+
+    // Пакетные услуги
+    document.querySelector('#packages .section-title').setAttribute('data-translate', 'packages_title');
+    document.querySelector('#packages .section-subtitle').setAttribute('data-translate', 'packages_subtitle');
+
+    const packageCards = document.querySelectorAll('.package-card');
+    packageCards[0].querySelector('.package-title').setAttribute('data-translate', 'package_sun');
+    const sunServices = packageCards[0].querySelectorAll('.package-services li');
+    sunServices[0].setAttribute('data-translate', 'package_service1_sun');
+    sunServices[1].setAttribute('data-translate', 'package_service2_sun');
+    sunServices[2].setAttribute('data-translate', 'package_service3_sun');
+    packageCards[0].querySelector('.btn-package').setAttribute('data-translate', 'btn_book');
+
+    packageCards[1].querySelector('.package-title').setAttribute('data-translate', 'package_tennis');
+    const tennisServices = packageCards[1].querySelectorAll('.package-services li');
+    tennisServices[0].setAttribute('data-translate', 'package_service1_tennis');
+    tennisServices[1].setAttribute('data-translate', 'package_service2_tennis');
+    tennisServices[2].setAttribute('data-translate', 'package_service3_tennis');
+    tennisServices[3].setAttribute('data-translate', 'package_service4_tennis');
+    packageCards[1].querySelector('.btn-package').setAttribute('data-translate', 'btn_book');
+
+    packageCards[2].querySelector('.package-title').setAttribute('data-translate', 'package_business');
+    const businessServices = packageCards[2].querySelectorAll('.package-services li');
+    businessServices[0].setAttribute('data-translate', 'package_service1_business');
+    businessServices[1].setAttribute('data-translate', 'package_service2_business');
+    businessServices[2].setAttribute('data-translate', 'package_service3_business');
+    businessServices[3].setAttribute('data-translate', 'package_service4_business');
+    businessServices[4].setAttribute('data-translate', 'package_service5_business');
+    packageCards[2].querySelector('.btn-package').setAttribute('data-translate', 'btn_book');
+
+    // Стоимость услуг
+    document.querySelector('#prices .section-title').setAttribute('data-translate', 'prices_title');
+    document.querySelector('#prices .section-subtitle').setAttribute('data-translate', 'prices_subtitle');
+
+    // Преимущества
+    document.querySelector('#advantages .section-title').setAttribute('data-translate', 'advantages_title');
+    const advantageItems = document.querySelectorAll('.advantage-item');
+    advantageItems[0].querySelector('h3').setAttribute('data-translate', 'advantage1_title');
+    advantageItems[0].querySelector('p').setAttribute('data-translate', 'advantage1_desc');
+    advantageItems[1].querySelector('h3').setAttribute('data-translate', 'advantage2_title');
+    advantageItems[1].querySelector('p').setAttribute('data-translate', 'advantage2_desc');
+    advantageItems[2].querySelector('h3').setAttribute('data-translate', 'advantage3_title');
+    advantageItems[2].querySelector('p').setAttribute('data-translate', 'advantage3_desc');
+    advantageItems[3].querySelector('h3').setAttribute('data-translate', 'advantage4_title');
+    advantageItems[3].querySelector('p').setAttribute('data-translate', 'advantage4_desc');
+
+    // Портфолио
+    document.querySelector('#portfolio .section-title').setAttribute('data-translate', 'portfolio_title');
+    document.querySelector('#portfolio p').setAttribute('data-translate', 'portfolio_subtitle');
+
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    portfolioItems[0].querySelector('h4').setAttribute('data-translate', 'portfolio_manicure');
+    portfolioItems[0].querySelector('p').setAttribute('data-translate', 'portfolio_manicure_desc');
+    portfolioItems[1].querySelector('h4').setAttribute('data-translate', 'portfolio_pedicure');
+    portfolioItems[1].querySelector('p').setAttribute('data-translate', 'portfolio_pedicure_desc');
+    portfolioItems[2].querySelector('h4').setAttribute('data-translate', 'portfolio_eyebrows');
+    portfolioItems[2].querySelector('p').setAttribute('data-translate', 'portfolio_eyebrows_desc');
+    portfolioItems[3].querySelector('h4').setAttribute('data-translate', 'portfolio_lashes');
+    portfolioItems[3].querySelector('p').setAttribute('data-translate', 'portfolio_lashes_desc');
+    portfolioItems[4].querySelector('h4').setAttribute('data-translate', 'portfolio_cosmetology');
+    portfolioItems[4].querySelector('p').setAttribute('data-translate', 'portfolio_cosmetology_desc');
+    portfolioItems[5].querySelector('h4').setAttribute('data-translate', 'portfolio_epilation');
+    portfolioItems[5].querySelector('p').setAttribute('data-translate', 'portfolio_epilation_desc');
+
+    // Запись
+    document.querySelector('#online').setAttribute('data-translate', 'booking_title');
+    document.querySelector('#booking p').setAttribute('data-translate', 'booking_subtitle');
+
+    const bookingWidgets = document.querySelectorAll('.widget-card');
+    bookingWidgets[0].querySelector('h3').setAttribute('data-translate', 'booking_altegio_title');
+    bookingWidgets[0].querySelector('p').setAttribute('data-translate', 'booking_altegio_desc');
+    bookingWidgets[0].querySelector('a').setAttribute('data-translate', 'booking_altegio_btn');
+
+    bookingWidgets[1].querySelector('h3').setAttribute('data-translate', 'booking_sredime_title');
+    bookingWidgets[1].querySelector('p').setAttribute('data-translate', 'booking_sredime_desc');
+    bookingWidgets[1].querySelector('a').setAttribute('data-translate', 'booking_sredime_btn');
+
+    // Контакты
+    document.querySelector('#contact .section-title').setAttribute('data-translate', 'contact_title');
+    document.querySelector('.contact-info h3').setAttribute('data-translate', 'contact_subtitle');
+
+    const addressInfo = document.querySelector('.address-info');
+    addressInfo.querySelector('p:first-child').setAttribute('data-translate', 'contact_address1');
+    addressInfo.querySelector('p:last-child').setAttribute('data-translate', 'contact_address2');
+
+    document.querySelector('.hours-info p').setAttribute('data-translate', 'contact_hours');
+    document.querySelector('.map-container h3').setAttribute('data-translate', 'contact_map_title');
+    document.querySelector('.sticker-text p').setAttribute('data-translate', 'contact_map_address');
+    document.querySelector('.navigate-btn span').setAttribute('data-translate', 'contact_map_navigate');
+
+    // Модальные окна
+    document.querySelector('#altegioModal .modal-header h3').setAttribute('data-translate', 'modal_altegio_title');
+    document.querySelector('#srediMeModal .modal-header h3').setAttribute('data-translate', 'modal_sredime_title');
+    document.querySelectorAll('.booking-loader p').forEach(loader => {
+        loader.setAttribute('data-translate', 'modal_loading');
+    });
+
+    // Футер
+    const footerTexts = document.querySelectorAll('footer p');
+    footerTexts[0].setAttribute('data-translate', 'footer_copyright');
+    footerTexts[1].setAttribute('data-translate', 'footer_tagline');
+}
+
+// Функция для переключения языка кнопками
+function setupLanguageSwitcher() {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            updateLanguage(lang);
         });
     });
+}
 
-    // Initialize with saved language
-    updateLanguage(currentLang);
+// Функция для инициализации слайдера цен с переводом
+function initPriceSlider() {
+    // Данные для слайдов
+    const priceSlides = [
+        {
+            id: 1,
+            image: '../price-slider/11.jpeg',
+            title: 'price_card_brows'
+        },
+        {
+            id: 2,
+            image: '../price-slider/22.jpeg',
+            title: 'price_card_epilation_women'
+        },
+        {
+            id: 3,
+            image: '../price-slider/33.jpeg',
+            title: 'price_card_manicure'
+        },
+        {
+            id: 4,
+            image: '../price-slider/44.jpeg',
+            title: 'price_card_epilation_men'
+        },
+        {
+            id: 5,
+            image: '../price-slider/55.jpeg',
+            title: 'price_card_cosmetology'
+        }
+    ];
+
+    // Добавляем скрытые заголовки для слайдов (для поддержки переводов)
+    const sliderContainer = document.querySelector('.price-slider');
+    if (sliderContainer) {
+        priceSlides.forEach(slide => {
+            const titleElement = document.createElement('span');
+            titleElement.classList.add('hidden-slide-title');
+            titleElement.setAttribute('data-slide-id', slide.id);
+            titleElement.setAttribute('data-translate', slide.title);
+            titleElement.style.display = 'none';
+            document.body.appendChild(titleElement);
+        });
+    }
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализируем атрибуты для перевода
+    initializeTranslations();
+
+    // Инициализируем слайдер цен с поддержкой переводов
+    initPriceSlider();
+
+    // Настраиваем переключатели языка
+    setupLanguageSwitcher();
+
+    // Проверяем, есть ли сохраненный язык в localStorage
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+        updateLanguage(savedLanguage);
+    } else {
+        // Используем язык по умолчанию
+        updateLanguage(currentLanguage);
+    }
 });
