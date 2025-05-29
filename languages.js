@@ -736,27 +736,27 @@ function initPriceSlider() {
     const priceSlides = [
         {
             id: 1,
-            image: '../price-slider/11.jpeg',
+            image: '11.jpeg',
             title: 'price_card_brows'
         },
         {
             id: 2,
-            image: '../price-slider/22.jpeg',
+            image: '22.jpeg',
             title: 'price_card_epilation_women'
         },
         {
             id: 3,
-            image: '../price-slider/33.jpeg',
+            image: '33.jpeg',
             title: 'price_card_manicure'
         },
         {
             id: 4,
-            image: '../price-slider/44.jpeg',
+            image: '44.jpeg',
             title: 'price_card_epilation_men'
         },
         {
             id: 5,
-            image: '../price-slider/55.jpeg',
+            image: '55.jpeg',
             title: 'price_card_cosmetology'
         }
     ];
