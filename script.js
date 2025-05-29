@@ -528,30 +528,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Данные для слайдов - обновите пути к вашим изображениям
     const priceSlides = [
         {
-                    id: 1,
-                    image: '11.jpeg', // Здесь должен быть путь к первому изображению
-                    title: 'Лазерная эпиляция для женщин'
-                },
-                {
-                    id: 2,
-                    image: '22.jpeg', // Здесь должен быть путь ко второму изображению
-                    title: 'Брови и ресницы'
-                },
-                {
-                    id: 3,
-                    image: '33.jpeg', // И так далее...
-                    title: 'Маникюр и педикюр'
-                },
-                {
-                    id: 4,
-                    image: '44.jpeg',
-                    title: 'Лазерная эпиляция для мужчин'
-                },
-                {
-                    id: 5,
-                    image: '55.jpeg',
-                    title: 'Косметология'
-                }
+            id: 1,
+            image: '../price-slider/11.jpeg',
+            title: 'Лазерная эпиляция для женщин'
+        },
+        {
+            id: 2,
+            image: '../price-slider/22.jpeg',
+            title: 'Брови и ресницы'
+        },
+        {
+            id: 3,
+            image: '../price-slider/33.jpeg',
+            title: 'Маникюр и педикюр'
+        },
+        {
+            id: 4,
+            image: '../price-slider/44.jpeg',
+            title: 'Лазерная эпиляция для мужчин'
+        },
+        {
+            id: 5,
+            image: '../price-slider/55.jpeg',
+            title: 'Косметология'
+        }
     ];
 
     // Глобальная переменная для хранения текущего индекса слайда
@@ -585,6 +585,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const img = document.createElement('img');
             img.src = slide.image;
             img.alt = slide.title;
+            img.loading = 'lazy'; // Добавляем ленивую загрузку
 
             // Добавляем изображение в слайд
             slideEl.appendChild(img);
@@ -592,10 +593,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Добавляем слайд в контейнер
             sliderContainer.appendChild(slideEl);
 
-            // Создаем индикатор
+            // Создаем индикатор с номером
             const indicator = document.createElement('div');
             indicator.className = 'indicator';
             indicator.setAttribute('data-index', index);
+            indicator.setAttribute('role', 'button');
+            indicator.setAttribute('aria-label', `Слайд ${index + 1}`);
+            // Добавляем номер слайда
+            indicator.textContent = index + 1;
             indicatorsContainer.appendChild(indicator);
         });
 
@@ -654,10 +659,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Обновляем индикаторы
         indicators.forEach((indicator, i) => {
             indicator.classList.toggle('active', i === index);
+
+            // Добавляем анимацию при активации
+            if (i === index) {
+                indicator.style.animation = 'pulse 0.5s';
+            }
         });
 
         // Сохраняем текущий индекс
         currentIndex = index;
+
+        // Объявляем текущий слайд для скринридеров
+        const sliderTitle = document.querySelector('.prices .section-title');
+        if (sliderTitle) {
+            const currentTitle = priceSlides[index].title;
+            sliderTitle.setAttribute('aria-live', 'polite');
+            sliderTitle.setAttribute('aria-atomic', 'true');
+        }
     }
 
     // Функция для настройки навигации
@@ -703,6 +721,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`Индикатор ${index} нажат`);
                 setActiveSlide(index);
             });
+
+            // Добавление доступности с клавиатуры
+            indicator.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const index = parseInt(indicator.getAttribute('data-index'));
+                    setActiveSlide(index);
+                }
+            });
+
+            // Делаем индикаторы доступными с клавиатуры
+            indicator.setAttribute('tabindex', '0');
         });
 
         // Обработчик клика по слайду
@@ -734,7 +764,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         slider.addEventListener('touchstart', e => {
             touchStartX = e.changedTouches[0].screenX;
-        });
+        }, { passive: true });
 
         slider.addEventListener('touchend', e => {
             touchEndX = e.changedTouches[0].screenX;
@@ -767,6 +797,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Добавляем обработчик события resize для адаптивности
     window.addEventListener('resize', function() {
-        // Можно добавить дополнительную логику для адаптации слайдера при изменении размера окна
+        // Адаптируем размер контейнера под размер активного слайда
+        const activeSlide = document.querySelector('.price-slide.active img');
+        const sliderContainer = document.querySelector('.price-slider-container');
+
+        if (activeSlide && sliderContainer) {
+            // Корректируем высоту контейнера слайдера в зависимости от соотношения сторон изображения
+            setTimeout(() => {
+                const aspectRatio = activeSlide.naturalHeight / activeSlide.naturalWidth;
+                const containerWidth = sliderContainer.clientWidth * 0.65; // 65% от ширины контейнера
+                const minHeight = window.innerWidth < 768 ? 450 : 600;
+                const calculatedHeight = Math.max(containerWidth * aspectRatio, minHeight);
+
+                // Плавно изменяем высоту контейнера
+                sliderContainer.style.transition = 'height 0.3s ease';
+                sliderContainer.style.height = `${calculatedHeight}px`;
+            }, 100); // Небольшая задержка для загрузки изображения
+        }
     });
+
+    // Добавляем анимацию пульсации для индикаторов
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1.1); }
+        }
+    `;
+    document.head.appendChild(styleSheet);
 });

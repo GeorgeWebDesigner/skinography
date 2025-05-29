@@ -10,16 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
     <style>
     @font-face {
         font-family: 'Stylish Mother';
-        src: url('Stylish-Mother.otf') format('otf'),
-        url('Stylish-Mother.ttf') format('truetype');
+        src: url('../fonts/Stylish-Mother.otf') format('otf'),
+        url('../fonts/Stylish-Mother.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
+    .caveat-<uniquifier> {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
     </style>
 </head>
 <body>
@@ -33,6 +42,8 @@
             <a href="#about" class="logo">Skinography</a>
             <ul class="nav-links">
                 <li><a href="#services">Услуги</a></li>
+                <li><a href="#packages">Пакеты</a></li>
+                <li><a href="#prices">Стоимость</a></li>
                 <li><a href="#advantages">Преимущества</a></li>
                 <li><a href="#portfolio">Портфолио</a></li>
                 <li><a href="#booking">Запись</a></li>
@@ -56,6 +67,8 @@
     <div class="mobile-menu">
         <ul class="mobile-nav-links">
             <li><a href="#services">Услуги</a></li>
+            <li><a href="#packages">Пакеты</a></li>
+            <li><a href="#prices">Стоимость</a></li>
             <li><a href="#advantages">Преимущества</a></li>
             <li><a href="#portfolio">Портфолио</a></li>
             <li><a href="#booking">Запись</a></li>
@@ -72,12 +85,12 @@
 <section class="hero" id="home">
     <!-- Слайдер фоновых изображений -->
     <div class="hero-slider">
-        <div class="slide active" style="background-image: url('1.jpeg')"></div>
-        <div class="slide" style="background-image: url('2.jpeg')"></div>
-        <div class="slide" style="background-image: url('3.jpeg')"></div>
-        <div class="slide" style="background-image: url('4.jpeg')"></div>
-        <div class="slide" style="background-image: url('5.jpeg')"></div>
-        <div class="slide" style="background-image: url('6.jpeg')"></div>
+        <div class="slide active" style="background-image: url('../hero/1.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/2.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/3.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/4.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/5.jpeg')"></div>
+        <div class="slide" style="background-image: url('../hero/6.jpeg')"></div>
     </div>
 
     <!-- Оверлей для читабельности текста -->
@@ -127,10 +140,10 @@
             <div class="about-image-slider">
                 <!-- Контейнер для слайдов -->
                 <div class="about-slider-container">
-                    <div class="about-slide active" style="background-image: url('2.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('5.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('4.jpeg')"></div>
-                    <div class="about-slide" style="background-image: url('6.jpeg')"></div>
+                    <div class="about-slide active" style="background-image: url('../hero/2.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/5.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/4.jpeg')"></div>
+                    <div class="about-slide" style="background-image: url('../hero/6.jpeg')"></div>
                 </div>
 
                 <!-- Оверлей для лучшей читаемости текста поверх изображения, если нужно -->
@@ -548,8 +561,8 @@
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <p class="email-info"><a href="mailto:skinographydoo@gmail.com">skinographydoo@gmail.com</a></p>
+                        <div class="contact-icon">📱</div>
+                        <p class="email-info"><a href="https://www.instagram.com/skinography_rs/" target="_blank">@skinography_rs</a></p>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">🕐</div>

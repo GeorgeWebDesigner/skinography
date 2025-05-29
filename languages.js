@@ -37,6 +37,23 @@ const translations = {
                 desc: 'Окрашивание, ламинирование, наращивание ресниц. Коррекция и оформление бровей любой сложности'
             }
         },
+        packages: {
+        title: 'ПАКЕТНЫЕ УСЛУГИ',
+        subtitle: 'Выгодные комплексы процедур для разных потребностей',
+        sun: {
+            title: 'Солнце'
+        },
+        tennis: {
+            title: 'Теннисистка'
+        },
+        business: {
+            title: 'Бизнес-вуман'
+        }
+    },
+    prices: {
+        title: 'СТОИМОСТЬ УСЛУГ',
+        subtitle: 'Ознакомьтесь с полным прейскурантом наших услуг'
+    },
         advantages: {
             title: 'НАШИ ПРЕИМУЩЕСТВА',
             experts: {
@@ -109,12 +126,12 @@ const translations = {
             ourServices: 'Naše usluge'
         },
         about: {
-            title: 'O NAMA',
+            title: 'NASA FILOZOFIJA',
             text1: 'Dobrodošli u Skinography - vaš premium salon lepote u samom srcu Beograda. Specijalizovani smo za inovativne tretmane kože, koristeći samo najsavremenije tehnologije i proizvode najvišeg kvaliteta.',
             text2: 'Naša misija je da pomognemo svakom klijentu da otkrije prirodnu lepotu i postigne idealno stanje kože. Verujemo da lepota počinje sa zdravom kožom, i zato pristupamo svakom klijentu individualno, kreirajući personalizovane programe nege.'
         },
         services: {
-            title: 'NAŠE USLUGE',
+            title: 'NASE USLUGE',
             laser: {
                 title: 'Laserska epilacija',
                 desc: 'Savremena tehnologija uklanjanja dlaka sa dugotrajnim efektom. Bezbedno, bezbolno i efikasno'
@@ -136,8 +153,25 @@ const translations = {
                 desc: 'Farbanje, laminiranje, nadogradnja trepavica. Korekcija i oblikovanje obrva bilo koje složenosti'
             }
         },
+        packages: {
+        title: 'PAKET USLUGE',
+        subtitle: 'Povoljni kompleksi procedura za različite potrebe',
+        sun: {
+            title: 'Sunce'
+        },
+        tennis: {
+            title: 'Teniserka'
+        },
+        business: {
+            title: 'Poslovna žena'
+        }
+    },
+    prices: {
+        title: 'CENOVNIK',
+        subtitle: 'Pogledajte kompletan cenovnik naših usluga'
+    },
         advantages: {
-            title: 'NAŠE PREDNOSTI',
+            title: 'NASE PREDNOSTI',
             experts: {
                 title: 'Iskusni stručnjaci',
                 desc: 'Tim sertifikovanih profesionalaca sa dugogodišnjim iskustvom'
@@ -168,7 +202,7 @@ const translations = {
             }
         },
         booking: {
-            title: 'ZAKAŽITE ONLINE',
+            title: 'ZAKAZITE ONLINE',
             subtitle: 'Izaberite platformu koja vam odgovara za zakazivanje',
             altegio: {
                 title: 'Altegio',
@@ -208,7 +242,7 @@ const translations = {
             ourServices: 'Our Services'
         },
         about: {
-            title: 'ABOUT US',
+            title: 'OUR PHILOSOPHY',
             text1: 'Welcome to Skinography - your premium beauty salon in the heart of Belgrade. We specialize in innovative skin procedures, using only the most advanced technologies and highest quality products.',
             text2: 'Our mission is to help every client reveal their natural beauty and achieve perfect skin condition. We believe that beauty begins with healthy skin, which is why we approach each client individually, creating personalized care programs.'
         },
@@ -235,6 +269,23 @@ const translations = {
                 desc: 'Tinting, lamination, lash extensions. Eyebrow correction and shaping of any complexity'
             }
         },
+        packages: {
+        title: 'PACKAGE SERVICES',
+        subtitle: 'Beneficial procedure packages for different needs',
+        sun: {
+            title: 'Sun'
+        },
+        tennis: {
+            title: 'Tennis'
+        },
+        business: {
+            title: 'Business Woman'
+        }
+    },
+    prices: {
+        title: 'PRICE LIST',
+        subtitle: 'Check our complete service price list'
+    },
         advantages: {
             title: 'OUR ADVANTAGES',
             experts: {
@@ -301,6 +352,7 @@ let currentLang = localStorage.getItem('preferred-language') || 'ru';
 // Эту функцию нужно добавить в languages.js
 
 // Обновленная функция для переключения языков
+// Обновленная функция для переключения языков
 function updateLanguage(lang) {
     currentLang = lang;
     const t = translations[lang];
@@ -329,6 +381,8 @@ function updateLanguage(lang) {
     const sectionTitles = {
         '#about .section-title': t.about.title,
         '#services .section-title': t.services.title,
+        '#packages .section-title': t.packages ? t.packages.title : 'ПАКЕТНЫЕ УСЛУГИ',
+        '#prices .section-title': t.prices ? t.prices.title : 'СТОИМОСТЬ УСЛУГ',
         '#advantages .section-title': t.advantages.title,
         '#portfolio .section-title': t.portfolio.title,
         '#booking .section-title': t.booking.title,
@@ -340,11 +394,35 @@ function updateLanguage(lang) {
         if (element) element.textContent = text;
     });
 
-    // Update about section (для обновленной структуры с философией)
+    // Update subtitles
+    const sectionSubtitles = {
+        '#packages .section-subtitle': t.packages ? t.packages.subtitle : 'Выгодные комплексы процедур для разных потребностей',
+        '#prices .section-subtitle': t.prices ? t.prices.subtitle : 'Ознакомьтесь с полным прейскурантом наших услуг',
+        '#portfolio .section-subtitle': t.portfolio.subtitle
+    };
+
+    Object.entries(sectionSubtitles).forEach(([selector, text]) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = text;
+    });
+
+    // Update about section
     const aboutSubtitle = document.querySelector('.about-subtitle');
     if (aboutSubtitle && t.about.subtitle) {
         aboutSubtitle.textContent = t.about.subtitle;
     }
+
+    // Update package cards
+    const packageTitles = {
+        '#sun-package .package-title': t.packages ? t.packages.sun.title : 'Солнце',
+        '#tennis-package .package-title': t.packages ? t.packages.tennis.title : 'Теннисистка',
+        '#business-package .package-title': t.packages ? t.packages.business.title : 'Бизнес-вуман'
+    };
+
+    Object.entries(packageTitles).forEach(([selector, text]) => {
+        const element = document.querySelector(selector);
+        if (element) element.textContent = text;
+    });
 
     // Update services
     const serviceCards = document.querySelectorAll('.service-card');
@@ -371,8 +449,14 @@ function updateLanguage(lang) {
     });
 
     // Update portfolio
-    const portfolioSubtitle = document.querySelector('#portfolio p');
-    if (portfolioSubtitle) portfolioSubtitle.textContent = t.portfolio.subtitle;
+    const portfolioItems = document.querySelectorAll('.portfolio-overlay');
+    const portfolioKeys = ['manicure', 'pedicure', 'brows', 'lashes', 'cosmetology', 'epilation'];
+    portfolioItems.forEach((item, index) => {
+        if (portfolioKeys[index] && t.portfolio.items[portfolioKeys[index]]) {
+            const title = item.querySelector('h4');
+            if (title) title.textContent = t.portfolio.items[portfolioKeys[index]];
+        }
+    });
 
     // Update booking
     const bookingSubtitle = document.querySelector('#booking > .container > p');
@@ -411,6 +495,11 @@ function updateLanguage(lang) {
 
     const navigateBtn = document.querySelector('.navigate-btn span');
     if (navigateBtn) navigateBtn.textContent = t.contact.navigate;
+
+    // Update package buttons
+    document.querySelectorAll('.btn-package').forEach(btn => {
+        btn.textContent = t.booking ? t.booking.bookButton : 'Записаться';
+    });
 
     // Update footer
     const footerTexts = document.querySelectorAll('footer p');
