@@ -529,27 +529,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const priceSlides = [
         {
             id: 1,
-            image: '../price-slider/11.jpeg',
+            image: '11.jpeg',
             title: 'Лазерная эпиляция для женщин'
         },
         {
             id: 2,
-            image: '../price-slider/22.jpeg',
+            image: '22.jpeg',
             title: 'Брови и ресницы'
         },
         {
             id: 3,
-            image: '../price-slider/33.jpeg',
+            image: '33.jpeg',
             title: 'Маникюр и педикюр'
         },
         {
             id: 4,
-            image: '../price-slider/44.jpeg',
+            image: '44.jpeg',
             title: 'Лазерная эпиляция для мужчин'
         },
         {
             id: 5,
-            image: '../price-slider/55.jpeg',
+            image: '55.jpeg',
             title: 'Косметология'
         }
     ];
